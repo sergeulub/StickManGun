@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeb3d6c6b450ec49814bae8b1920898, type: 3}
+  m_Name: MP5_data
+  m_EditorClassIdentifier: 
+  weaponType: 5
+  cageValue: 3000
+  damageValue: 6
+  damageValues: 060000000700000008000000090000000a0000000b0000000c0000000e0000001000000014000000
+  flightLength: 10
+  scatterValue: 0.2
+  speedValue: 1
+  firePointLocalPos: {x: -0.32, y: -1.63}
+  _weaponDeltaAngle: -152.5
+  _weaponDeltaAngleByDistance: 0
+  flamePrefab: {fileID: 0}
+  shotTime: 0.05
+  reloadTime: 1.55

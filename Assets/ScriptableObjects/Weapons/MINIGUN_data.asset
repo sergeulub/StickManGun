@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeb3d6c6b450ec49814bae8b1920898, type: 3}
+  m_Name: MINIGUN_data
+  m_EditorClassIdentifier: 
+  weaponType: 6
+  cageValue: 150000
+  damageValue: 6
+  damageValues: 0600000007000000090000000d0000001000000014000000190000001e0000002300000029000000
+  flightLength: 10
+  scatterValue: 0
+  speedValue: 3
+  firePointLocalPos: {x: -1.1, y: -2.4}
+  _weaponDeltaAngle: -190.5
+  _weaponDeltaAngleByDistance: -19.5
+  flamePrefab: {fileID: 0}
+  shotTime: 0.03
+  reloadTime: 3.2
