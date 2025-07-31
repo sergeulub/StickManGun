@@ -8,7 +8,7 @@ public class InventoryData
     // 30 €чеек: 0-25 обычные, 26-31 Ч поле игрока
     public List<int> slotItemIDs = new List<int>(new int[StaticDatas._inventoryLength]);
     public List<int> arsneal = new List<int>(new int[StaticDatas._inventoryLength + 1]);
-    public List<int> isNew = new List<int>(new int[StaticDatas._inventoryLength + 1]);
+    public List<int> isNew = new List<int>(new int[StaticDatas._inventoryLength + 1]); 
     public List<int> levels = new List<int>(new int[StaticDatas._inventoryLength + 1]);
 
     public InventoryData()  

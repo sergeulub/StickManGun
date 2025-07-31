@@ -24,10 +24,16 @@ public class Shop : MonoBehaviour
     private int currentID;
     private List<ItemInfo> itemInfos;
 
+    private void OnEnable()
+    {
+        EventManager.Subscribe(GameEvents.ShopOpened, LoadShop); 
+    }
+    private void OnDisable()
+    {
+        EventManager.Unsubscribe(GameEvents.ShopOpened, LoadShop);
+    }
     private void Awake()
     {
-        EventManager.Subscribe(GameEvents.ShopOpened, LoadShop);
-
         //загрузка данных
         itemInfos = info.GetAllItems();
     }

@@ -32,18 +32,17 @@ public class ItemInfo
     [Header("Уровень открытия")]
     public int requiredLevel;
 
+    
+    private ShopCellUI cell;
 
     public void LoadShopInfo(ShopCellUI cell, MenuSprites sprites)
-    {
+    {   
+        this.cell = cell;
         if (GameManager.playerLevel < requiredLevel)
         {
             cell.lockSprite.SetActive(true);
             cell.lockTextGO.SetActive(true);
             cell.lockText.text = $"откроется на {requiredLevel+1} ур.";
-        }
-        else if (GameManager.InventoryData.isNew[id] == 1)
-        {
-            cell.lockAnim.Play();
         }
         else
         {
@@ -92,8 +91,12 @@ public class ItemInfo
         
     }
     public virtual void LoadShopItemInfo(ShopItemInfoUI itemInfoUI, MenuSprites sprites)
-    {
-        GameManager.InventoryData.isNew[id] = 0;
+    {   
+        if (GameManager.InventoryData.isNew[id] == 1)
+        {
+            GameManager.InventoryData.isNew[id] = 0;
+            cell.newText.SetActive(false);
+        }
 
 
         itemInfoUI.gameObject.SetActive(true);//включаем

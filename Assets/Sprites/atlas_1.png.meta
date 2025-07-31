@@ -1056,7 +1056,7 @@ TextureImporter:
         height: 597
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 90, y: 94, z: 95, w: 95}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2399,7 +2399,7 @@ TextureImporter:
         width: 100
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2420,7 +2420,7 @@ TextureImporter:
         width: 108
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2441,7 +2441,7 @@ TextureImporter:
         width: 62
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2462,7 +2462,7 @@ TextureImporter:
         width: 104
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2470,6 +2470,48 @@ TextureImporter:
       bones: []
       spriteID: f0543f4f10db5094dacf47890f1a8f54
       internalID: -641802245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_wood
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 70
+        width: 453
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1753f25c6279a4a85180ddac5da4c1
+      internalID: -1335680022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_continue
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 11
+        width: 254
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f442b2a355d0fc48922e11e1ce8ff70
+      internalID: 1506978040
       vertices: []
       indices: 
       edges: []
@@ -2547,6 +2589,8 @@ TextureImporter:
       MI_cloud4: -1175204475
       MI_cloud5: 799734143
       MI_cloud6: 280974007
+      M_continue: 1506978040
+      M_wood: -1335680022
       R_bronz: 747081797
       R_empty: 1866355619
       R_gold: 2015751036

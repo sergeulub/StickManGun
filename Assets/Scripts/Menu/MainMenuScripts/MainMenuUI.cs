@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [Header("Money")]
     public TMP_Text moneyText;
+
+    [Space]
+    [Header("New Level")]
+    public int newItems;
 
     private void Awake()
     {

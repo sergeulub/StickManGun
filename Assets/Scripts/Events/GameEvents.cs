@@ -16,6 +16,8 @@ public static class GameEvents
     public const string ArtifactsOpened = "ArtifactsOpened";
     public const string ItemClicked = "ItemClicked";
     public const string ItemDragEnded = "ItemDragEnded";
+    public const string ItemShopOpened = "ItemShopOpened";
+    public const string LevelUp = "LevelUp";
 
 
 }
