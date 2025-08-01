@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StaticDatas
 {
-    //class Pistol
+    #region Pistol
     public static float _pistolFunctionByDistanceRight()
     {
         return -110f;
@@ -14,7 +14,9 @@ public class StaticDatas
     {
         return 0f;
     }
-    //class PP
+    #endregion
+
+    #region PP
     public static float _ppFunctionByDistanceRight()
     {
         return 55f;
@@ -23,8 +25,9 @@ public class StaticDatas
     {
         return 0f;
     }
+    #endregion
 
-    //class P90
+    #region P90
     public static float _p90FunctionByDistanceRight()
     {
         return 47f;
@@ -33,8 +36,9 @@ public class StaticDatas
     {
         return 0f;
     }
+    #endregion
 
-    //class Shotgun
+    #region Shotgun
     public static float _shotgunFunctionByDistanceRight()
     {
         return -10f;
@@ -43,7 +47,9 @@ public class StaticDatas
     {
         return 0f;
     }
-    //class Minigun
+    #endregion
+
+    #region Minigun
     public static float _minigunRangeDeltaY = 0.06f;
     public static float _minigunFunctionByDistanceLeft(float x)
     {
@@ -59,8 +65,9 @@ public class StaticDatas
         else
             return - (32.2596f / (0.326f - 0.32535f) + 17.96415f);
     }
+    #endregion
 
-    //class Rifle
+    #region Rifle
     public static float _rifleFunctionByDistanceRight(float x)
     {
         return 10.3f - (12f / x);
@@ -74,8 +81,9 @@ public class StaticDatas
              - 25.188374f * x
              + 28.692476f;
     }
+    #endregion
 
-    //class Sniper
+    #region Sniper
     public static float _sniperFunctionByDistance(float x)
     {
         return 0.01717167f * x * x * x * x
@@ -84,17 +92,19 @@ public class StaticDatas
              - 9.0751030f * x
              + 9.4453944f;
     }
-    
-    //class Weapon
+    #endregion
+
+    #region Weapon
     public static float _bulletLifeTime = 0.05f;
     public static float _scatterMaxValue = 45f;
     public static float _minAimDistance = 1.5f;
+    #endregion
 
-    //class AimController
+    #region AimController
     public static float _armDeltaRotation = 129f;
+    #endregion
 
-
-    //class ItemInfo
+    #region ItemInfo
     public static string _buyText = "йсохрэ";
     public static string _sellText = "опндюрэ";
     public static float _coinDelta(int length)
@@ -106,8 +116,9 @@ public class StaticDatas
         float extraX = isPercentage ? 10f : 0f;
         return -2f + extraX + 5.85f * length;
     }
+    #endregion
 
-    //class Shop
+    #region Shop
     public static int _sellPrice(int buyPrice)
     {
         return Mathf.RoundToInt(buyPrice / 2);
@@ -126,8 +137,9 @@ public class StaticDatas
     public static int _firstHatID = 19;
     public static int _firstRingID = 24;
     public static int _itemsQuantity = 30;
+    #endregion
 
-    //class Inventory
+    #region Inventory
     public static int _inventoryLength = 32;
     public static int _weaponID1 = 26;
     public static int _weaponID2 = 27;
@@ -136,8 +148,9 @@ public class StaticDatas
     public static int _ringID1 = 30;
     public static int _ringID2 = 31;
     public static int _emptyID = -1;
+    #endregion
 
-    //class Deployables
+    #region Deployables
     public static int _deployableCount = 4;
     public static float _valueByLevel(int level, float upgradeValue)
     {
@@ -151,7 +164,16 @@ public class StaticDatas
     {
         return buyPrice * (level + 1);
     }
+    #endregion
 
-    //class Boosts
+    #region Boosts
     public static int _boostsCount = 8;
+    #endregion
+
+    #region GameManager
+    public static List<int> expList = new List<int>() 
+    {
+        100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400
+    };
+    #endregion
 }

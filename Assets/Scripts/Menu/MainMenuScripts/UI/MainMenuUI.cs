@@ -8,11 +8,16 @@ public class MainMenuUI : MonoBehaviour
 
     [Space]
     [Header("New Level")]
-    public int newItems;
+    public NewLevelUI newItems;
+
+    [Space]
+    [Header("exp")]
+    public ExpUI expUI;
 
     private void Awake()
     {
         int money = GameManager.money;
         moneyText.text = StaticDatas._moneyTextFormat(money);
     }
+
 }

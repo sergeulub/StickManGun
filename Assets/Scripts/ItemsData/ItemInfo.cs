@@ -287,6 +287,15 @@ public class ItemInfo
             itemInfoUI.upgradeButton.gameObject.SetActive(false);
         }
     }
+    public int LevelUpLoad(Image image)
+    {
+        if (GameManager.playerLevel == GameManager.InventoryData.levels[id])
+        {
+            image.sprite = itemSprite;
+            return 1;
+        }
+        return 0; 
+    }
 }
 
 public enum ItemType

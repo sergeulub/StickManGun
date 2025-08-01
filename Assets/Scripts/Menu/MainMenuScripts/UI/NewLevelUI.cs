@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class NewLevelUI : MonoBehaviour
 {
+    public GameObject window;
+
     public TMP_Text levelText;
 
-    public List<Image> newItems;
+    public List<Image> newItemsImage;
 
     public GameObject blackScreen;
 }

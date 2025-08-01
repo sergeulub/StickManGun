@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using TMPro;
@@ -22,7 +23,17 @@ public class GameManager : MonoBehaviour
         get => PlayerPrefs.GetInt("boostPoint", 2);
         set => PlayerPrefs.SetInt("boostPoint", value);
     }
-    
+
+    public static int playerExp
+    {
+        get => PlayerPrefs.GetInt("playerExp", 0);
+        set => PlayerPrefs.SetInt("playerExp", value);
+    }
+
+
+    public static InventoryData InventoryData = new InventoryData();
+    public static ArtefactsData ArtefactsData = new ArtefactsData();
+
     private void Awake()
     {
         EventManagerOld.OnWantBuyItem += CheckBuy;
@@ -69,6 +80,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
     }
-    public static InventoryData InventoryData = new InventoryData();
-    public static ArtefactsData ArtefactsData = new ArtefactsData();
+    
+
+
 }
