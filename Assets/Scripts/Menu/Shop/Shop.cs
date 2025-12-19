@@ -34,13 +34,13 @@ public class Shop : MonoBehaviour
     }
     private void Awake()
     {
-        //загрузка данных
         itemInfos = info.GetAllItems();
     }
     public void _ChangeHeader(int headerIndex)
     {
         header = headerIndex;
         LoadHeader(header);
+        Debug.Log("Changed to" + header);
     }
     public void _BuyItem(int _indexItem)
     {
@@ -73,7 +73,7 @@ public class Shop : MonoBehaviour
     }
     private void LoadHeader(int headerID)
     {
-        //проигрывание анимаций
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         for (int i = 0; i < 4; i++)
         {
             headers[i]._animation.clip = headers[i]._clips[1];
@@ -83,11 +83,11 @@ public class Shop : MonoBehaviour
         headers[header]._animation.Play();
         headers[header]._transform.SetAsLastSibling();
 
-        //логика выгрузки информации в UI
+        //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ UI
 
         Dictionary<int, int> headerLength = new Dictionary<int, int>() { {0, 12}, {1, 6}, {2, 5}, {3, 7} };
 
-        //активайция нужных окошек
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         for (int i = 0; i < cellsUI.Length; i++)
         {
             cellsUI[i].gameObject.SetActive(true);
@@ -98,7 +98,7 @@ public class Shop : MonoBehaviour
             cellsUI[i].gameObject.SetActive(false);
         }
 
-        //рассчеты позиций ID
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ID
         int startID = 0;
         int endID = 0;
         switch (headerID)

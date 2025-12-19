@@ -6,8 +6,8 @@ using UnityEngine;
 public abstract class Weapon
 {
     protected Weapons data;
-    protected MonoBehaviour ownerMono; // нужен для запуска корутин
-    protected Transform firePoint; // точка, откуда вылетает пуля
+    protected MonoBehaviour ownerMono; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    protected Transform firePoint; // пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     protected GameObject bulletLinePrefab;
     protected Transform weaponSprite;
     protected Camera mainCamera;
@@ -85,14 +85,14 @@ public abstract class Weapon
                 nextShotTime = Time.time + data.shotTime;
             }
 
-            yield return null; // ждём 1 кадр перед следующей проверкой
+            yield return null; // пїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }
     }
 
     protected virtual void FireBullet()
     {
 
-        // === Обновляем поворот firePoint под угол дула ===
+        // === пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ firePoint пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ ===
         float weaponAngle = weaponSprite.transform.rotation.eulerAngles.z;
         firePoint.rotation = Quaternion.Euler(0f, 0f, weaponAngle + 180f + extraWeaponAngle);
 
@@ -104,17 +104,17 @@ public abstract class Weapon
         Vector3 start = firePoint.position;
         Vector3 end = start + direction.normalized * data.flightLength;
 
-        // Создаём LineRenderer
+        // пїЅпїЅпїЅпїЅпїЅпїЅ LineRenderer
         GameObject lineObj = BulletLinePoolManager.Instance.GetBulletLine();
         LineRenderer lr = lineObj.GetComponent<LineRenderer>();
 
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
 
-        // Удалить через 0.05 сек, чтобы просто мигнул
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 0.05 пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         ownerMono.StartCoroutine(DisableAfterDelay(lineObj, StaticDatas._bulletLifeTime));
 
-        //звуи, эффекты
+        //пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
 
@@ -146,7 +146,7 @@ public abstract class Weapon
         if (isReloading)
         {
             isReloading = false;
-            ownerMono.StopCoroutine(reloadCoroutine); // <--- важно
+            ownerMono.StopCoroutine(reloadCoroutine); // <--- пїЅпїЅпїЅпїЅпїЅ
             uiController.StopReload();
         }
     }
@@ -171,11 +171,11 @@ public abstract class Weapon
     }
     public virtual void RotateWeapon()
     {
-        //поврот на +180 если смотрим вправо
+        //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ +180 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (playerTransform.localScale.x > 0) extraWeaponAngle = 0f;
         else extraWeaponAngle = 180f;
 
-        //наводка
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector2 aimDirection = Aim();
         if (aimDirection != Vector2.zero)
         {
@@ -184,7 +184,7 @@ public abstract class Weapon
             weaponPivot.rotation = Quaternion.Euler(0, 0, angle + deltaWeaponAngle + extraWeaponAngle);
         }
 
-        //стрельба
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         StartFiring();
         Debug.Log("Fire");
     }

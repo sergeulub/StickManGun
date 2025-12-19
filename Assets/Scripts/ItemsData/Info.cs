@@ -51,5 +51,4 @@ public class Info : ScriptableObject
             rings[i - (weapons.Count + boots.Count + hats.Count)].id = i;
         }
     }
-
 }

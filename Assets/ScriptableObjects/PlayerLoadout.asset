@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a62d75cfc3bb642831b1cc56150250, type: 3}
   m_Name: PlayerLoadout
   m_EditorClassIdentifier: 
-  activeItems: 0b0000000a00000012000000160000001e0000001e000000
+  activeItems: 030000000400000012000000160000001e0000001e000000
