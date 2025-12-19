@@ -16,7 +16,7 @@ public class Item
     public Sprite sprite;
     public Vector2 size;
     [Space]
-    public int buyPriñe;
+    public int buyPrice;
     public List<int> upgradePrices;
     [Space]
     public ItemType type;

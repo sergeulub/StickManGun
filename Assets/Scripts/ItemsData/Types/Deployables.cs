@@ -28,7 +28,7 @@ public class Deployables : ItemInfo
     public float upgrade2Value;
 
     [Space]
-    [Header("Описание")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public string description;
 
     public void LoadDeployablesInfo(DeployableItemCellUI cell)
@@ -37,7 +37,7 @@ public class Deployables : ItemInfo
         {
             cell.lockSprite.SetActive(true);
             cell.lockTextGO.SetActive(true);
-            cell.lockText.text = $"откроется на {requiredLevel + 1} ур.";
+            cell.lockText.text = $"РѕС‚РєСЂРѕРµС‚СЃСЏ РЅР° {requiredLevel + 1} СѓСЂ.";
         }
         else if (this.isNew())
         {
@@ -58,24 +58,24 @@ public class Deployables : ItemInfo
         int level = GameManager.ArtefactsData.deployablesLevels[id];
         cell.priceText.text = StaticDatas._upgradePriceByLevel(level, buyPrice).ToString();
 
-        //положение монетки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 pos = cell.coinIcon.transform.localPosition;
         pos.x = StaticDatas._coinDelta(cell.priceText.text.Length);
         cell.coinIcon.transform.localPosition = pos;
 
-        //логика замка
+        //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     }
     public void LoadDeployablesItemInfo(DeployableItemInfoUI itemInfoUI)
     {
         itemInfoUI.itemInfo = this;
 
-        itemInfoUI.gameObject.SetActive(true);//включаем
+        itemInfoUI.gameObject.SetActive(true);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-        itemInfoUI.nameText.text = itemName;//имя
+        itemInfoUI.nameText.text = itemName;//пїЅпїЅпїЅ
 
         itemInfoUI.descriptionText.text = description;
 
-        itemInfoUI.image.sprite = itemSprite;//картинка
+        itemInfoUI.image.sprite = itemSprite;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (spriteSizeMenu.y > 51)
             itemInfoUI.imageTransform.sizeDelta = spriteSizeMenu / 1.4f;
         else
@@ -98,12 +98,12 @@ public class Deployables : ItemInfo
         }
         itemInfoUI.upgradePriceText.text = upgradePrice.ToString();
 
-        //положение монетки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 pos = itemInfoUI.upgradeCoinIcon.transform.localPosition;
         pos.x = StaticDatas._coinDelta(itemInfoUI.upgradePriceText.text.Length);
         itemInfoUI.upgradeCoinIcon.transform.localPosition = pos;
 
-        itemInfoUI.lvlText.text = $"УР. {level + 1}";
+        itemInfoUI.lvlText.text = $"пїЅпїЅ. {level + 1}";
 
 
         List<BonusUI> bonuses = itemInfoUI.bonusesUI;
@@ -119,7 +119,7 @@ public class Deployables : ItemInfo
 
         bonus1.upgradeValueText.text = $"+{upgrade1Value}";
 
-        //положение  bonus1 upgradeText
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  bonus1 upgradeText
         Vector3 pos1 = bonus1.upgradeTextTransform.transform.localPosition;
         pos1.x = StaticDatas._upgradeDeployablesTextDelta(bonus1.valueText.text.Length-1);
         bonus1.upgradeTextTransform.transform.localPosition = pos1;
@@ -138,7 +138,7 @@ public class Deployables : ItemInfo
 
             bonus2.upgradeValueText.text = $"+{upgrade2Value}";
 
-            //положение  bonus2 upgradeText
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  bonus2 upgradeText
             Vector3 pos2 = bonus2.upgradeTextTransform.transform.localPosition;
             pos2.x = StaticDatas._upgradeDeployablesTextDelta(bonus2.valueText.text.Length - 1);
             bonus2.upgradeTextTransform.transform.localPosition = pos2;

@@ -18,11 +18,11 @@ public class PlayerActionController : MonoBehaviour
 
 
     [Header("Runtime")]
-    public int currentWeaponIndex = 0; // 0 или 1
+    public int currentWeaponIndex = 0; // 0 пїЅпїЅпїЅ 1
 
 
-    private List<Weapon> equippedWeapons;//оружия в арсенале. любое оружие
-    private List<Weapons> weaponDatas;//данные об оружиях из арсенала
+    private List<Weapon> equippedWeapons;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    private List<Weapons> weaponDatas;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private List<ItemInfo> itemInfos;
 
     private void Awake()
@@ -34,20 +34,21 @@ public class PlayerActionController : MonoBehaviour
     void Start()
     {
         weaponDatas[0] = itemInfos[playerLoadout.activeItems[0]] as Weapons;
-        weaponDatas[1] = itemInfos[playerLoadout.activeItems[1]] as Weapons;
-
         equippedWeapons[0] =  WeaponFactory.CreateWeapon(weaponDatas[0]);
-        equippedWeapons[1] = WeaponFactory.CreateWeapon(weaponDatas[1]);
-
         equippedWeapons[0].Initialize(this, firePoint, bulletLinePrefab, weaponSprite, mainCamera, weaponPivot, playerTransform);
-        equippedWeapons[1].Initialize(this, firePoint, bulletLinePrefab, weaponSprite, mainCamera, weaponPivot, playerTransform);
 
+        if (playerLoadout.activeItems[1] != StaticDatas.EMPTY_SLOT)
+        {
+            weaponDatas[1] = itemInfos[playerLoadout.activeItems[1]] as Weapons;
+            equippedWeapons[1] = WeaponFactory.CreateWeapon(weaponDatas[1]);
+            equippedWeapons[1].Initialize(this, firePoint, bulletLinePrefab, weaponSprite, mainCamera, weaponPivot, playerTransform);
+        }
         EquipWeapon(0);
         /*
-        Debug.Log($"Героя начинает с оружием . Характеристики: тип {weaponDatas[0].weaponType},урон {weaponDatas[0].damageValue}, " +
-            $"время между патронами {weaponDatas[0].shotTime}, патронов в обойме {weaponDatas[0].cageValue}");
-        Debug.Log($"Второе оружие. Характеристики: тип {weaponDatas[1].weaponType},урон {weaponDatas[1].damageValue}, время между патронами {weaponDatas[1].shotTime}, " +
-            $"патронов в обойме {weaponDatas[1].cageValue}");
+        Debug.Log($"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ . пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅ {weaponDatas[0].weaponType},пїЅпїЅпїЅпїЅ {weaponDatas[0].damageValue}, " +
+            $"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[0].shotTime}, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[0].cageValue}");
+        Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅ {weaponDatas[1].weaponType},пїЅпїЅпїЅпїЅ {weaponDatas[1].damageValue}, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[1].shotTime}, " +
+            $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[1].cageValue}");
         */
     }
     private void Update()
@@ -73,11 +74,11 @@ public class PlayerActionController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {   
-            //наводка
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Vector2 aimDirection = equippedWeapons[currentWeaponIndex].Aim().normalized;
             if (aimDirection != Vector2.zero)
             {
-                //наводка
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 equippedWeapons[currentWeaponIndex].RotateWeapon();
                 Debug.Log("aim");
             }
@@ -96,9 +97,9 @@ public class PlayerActionController : MonoBehaviour
         currentWeaponIndex = 1 - currentWeaponIndex; // 0 -> 1, 1 -> 0
         EquipWeapon(currentWeaponIndex);
         /*
-        Debug.Log($"Теперь в руках у героя оружие {weaponDatas[currentWeaponIndex].weaponName}. Характеристики: тип {weaponDatas[currentWeaponIndex].type},урон {weaponDatas[currentWeaponIndex].damageValue}, " +
-            $"время между патронами {weaponDatas[currentWeaponIndex].shotTime}, патронов в обойме {weaponDatas[currentWeaponIndex].cageValue}");
-        Debug.Log($"Запазухой оружие {weaponDatas[1 - currentWeaponIndex].weaponName}.");*/
+        Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[currentWeaponIndex].weaponName}. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅ {weaponDatas[currentWeaponIndex].type},пїЅпїЅпїЅпїЅ {weaponDatas[currentWeaponIndex].damageValue}, " +
+            $"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[currentWeaponIndex].shotTime}, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[currentWeaponIndex].cageValue}");
+        Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {weaponDatas[1 - currentWeaponIndex].weaponName}.");*/
     }
     private void EquipWeapon(int index)
     {
@@ -109,10 +110,10 @@ public class PlayerActionController : MonoBehaviour
             StartCoroutine(equippedWeapons[currentWeaponIndex].Reload());
         }
 
-        // Обновляем firePoint позицию
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ firePoint пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         firePoint.localPosition = weaponDatas[currentWeaponIndex].firePointLocalPos;
 
-        // Уведомляем подписчиков о смене оружия
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         EventManager.Trigger(GameEvents.WeaponChanged, weaponID);
     }
     public Weapon currentWeapon => equippedWeapons[currentWeaponIndex];

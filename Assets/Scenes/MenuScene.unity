@@ -32351,6 +32351,8 @@ MonoBehaviour:
   shop: {fileID: 289927961}
   inventory: {fileID: 852563448}
   artifacts: {fileID: 1613007212}
+  playerLoadout: {fileID: 11400000, guid: f95491a52da9d6a4e9d2e1574148e85e, type: 2}
+  info: {fileID: 11400000, guid: 3d8253fcfedebe34b95d83de909befc5, type: 2}
 --- !u!224 &1914423685 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4632062618917567334, guid: 12427544820752a4b9d6b31ee72e5c4c, type: 3}

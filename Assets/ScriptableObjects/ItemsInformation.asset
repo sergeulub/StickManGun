@@ -1028,6 +1028,28 @@ MonoBehaviour:
     buyPrice: 0
     upgradePrices: 
     requiredLevel: 0
+  emptyWeapon:
+    itemName: 
+    id: -1
+    itemType: 0
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 
+    requiredLevel: 0
+    weaponType: 0
+    damageValue: 0
+    upgradeDamageValues: 
+    cageValue: 0
+    speedValue: 0
+    shotTime: 0
+    reloadTime: 0
+    scatterValue: 0
+    flightLength: 0
+    firePointLocalPos: {x: 0, y: 0}
+    _weaponDeltaAngle: 0
+    _weaponDeltaAngleByDistance: 0
+    flamePrefab: {fileID: 0}
   _allItems:
   - itemName: Empty
     id: 0

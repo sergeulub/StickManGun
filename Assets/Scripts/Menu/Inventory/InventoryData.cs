@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class InventoryData
 {
-    // 30 ячеек: 0-25 обычные, 26-31 — поле игрока
+    // 30 пїЅпїЅпїЅпїЅпїЅ: 0-25 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, 26-31 пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public List<int> slotItemIDs = new List<int>(new int[StaticDatas._inventoryLength]);
     public List<int> arsneal = new List<int>(new int[StaticDatas._inventoryLength + 1]);
     public List<int> isNew = new List<int>(new int[StaticDatas._inventoryLength + 1]); 
@@ -15,7 +15,7 @@ public class InventoryData
     {
         for (int i = 0; i < StaticDatas._inventoryLength; i++)
         {
-            slotItemIDs[i] = StaticDatas._emptyID; // -1 означает пустая ячейка
+            slotItemIDs[i] = StaticDatas._emptyID; // -1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         }
         for (int i = 0; i < StaticDatas._inventoryLength + 1; i++)
         {

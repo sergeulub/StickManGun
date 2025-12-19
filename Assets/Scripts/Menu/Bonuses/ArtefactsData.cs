@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArtefactsData : MonoBehaviour
+public class ArtefactsData
 {   
     public List<int> boostsLevels = new List<int>(new int[StaticDatas._boostsCount]);
     public List<int> deployablesLevels = new List<int>(new int[StaticDatas._deployableCount]);

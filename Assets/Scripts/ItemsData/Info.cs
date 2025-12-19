@@ -14,7 +14,7 @@ public class Info : ScriptableObject
     public List<Deployables> deployables;
     public List<Boosts> boosts;
     public ItemInfo emptyItem;
-
+    public EmptyWeapon emptyWeapon; 
 
     public List<ItemInfo> _allItems;
 

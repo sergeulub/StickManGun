@@ -26,7 +26,7 @@ public class LegsAnimationController : MonoBehaviour
     void Start()
     {
         int weaponID = playerLoadout.activeItems[0];
-        UpdateSpeedParameters(weaponID); // по умолчанию стоим
+        UpdateSpeedParameters(weaponID); // пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     }
     public void UpdateGroundParameters(bool isGrounded)
     {

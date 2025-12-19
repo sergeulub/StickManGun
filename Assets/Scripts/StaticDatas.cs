@@ -105,8 +105,8 @@ public class StaticDatas
     #endregion
 
     #region ItemInfo
-    public static string _buyText = "йсохрэ";
-    public static string _sellText = "опндюрэ";
+    public static string _buyText = "О©╫О©╫О©╫О©╫О©╫О©╫";
+    public static string _sellText = "О©╫О©╫О©╫О©╫О©╫О©╫О©╫";
     public static float _coinDelta(int length)
     {
         return 6f + 5.85f * length;
@@ -116,6 +116,8 @@ public class StaticDatas
         float extraX = isPercentage ? 10f : 0f;
         return -2f + extraX + 5.85f * length;
     }
+    public const int EMPTY_SLOT = -1;
+
     #endregion
 
     #region Shop

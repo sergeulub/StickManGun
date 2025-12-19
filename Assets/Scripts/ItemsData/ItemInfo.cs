@@ -9,27 +9,27 @@ using UnityEngine.UI;
 [Serializable]
 public class ItemInfo
 {
-    [Header("Название")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public string itemName;
     public int id;
 
 
     [Space(10)]
-    [Header("Тип")]
+    [Header("пїЅпїЅпїЅ")]
     public ItemType itemType;
 
     [Space(10)]
-    [Header("Спрайт")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅ")]
     public Sprite itemSprite;
     public Vector2 spriteSize;
 
     [Space(10)]
-    [Header("Цена")]
+    [Header("пїЅпїЅпїЅпїЅ")]
     public int buyPrice;
     public List<int> upgradePrices;
 
     [Space(10)]
-    [Header("Уровень открытия")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public int requiredLevel;
 
     
@@ -42,7 +42,7 @@ public class ItemInfo
         {
             cell.lockSprite.SetActive(true);
             cell.lockTextGO.SetActive(true);
-            cell.lockText.text = $"откроется на {requiredLevel+1} ур.";
+            cell.lockText.text = $"РѕС‚РєСЂРѕРµС‚СЃСЏ РЅР° {requiredLevel + 1} СѓСЂ.";
         }
         else
         {
@@ -84,7 +84,7 @@ public class ItemInfo
             cell.buyOrSellImage.sprite = sprites.sellSprite;
         }
 
-        //положение монетки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 pos = cell.coinIcon.transform.localPosition;
         pos.x = StaticDatas._coinDelta(cell.priceText.text.Length);
         cell.coinIcon.transform.localPosition = pos;
@@ -99,11 +99,11 @@ public class ItemInfo
         }
 
 
-        itemInfoUI.gameObject.SetActive(true);//включаем
+        itemInfoUI.gameObject.SetActive(true);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-        itemInfoUI.nameText.text = itemName;//имя
+        itemInfoUI.nameText.text = itemName;//пїЅпїЅпїЅ
 
-        itemInfoUI.image.sprite = itemSprite;//картинка
+        itemInfoUI.image.sprite = itemSprite;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (spriteSize.x < 90)
             itemInfoUI.imageTransform.sizeDelta = spriteSize;
         else
@@ -112,7 +112,7 @@ public class ItemInfo
             itemInfoUI.imageTransform.sizeDelta = new Vector2(87, y);
         }
 
-        //покупка или продажа
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (!GameManager.InventoryData.isBought(id))
         {
             itemInfoUI.priceText.text = buyPrice.ToString();
@@ -136,7 +136,7 @@ public class ItemInfo
             itemInfoUI.buyOrSellButton.interactable = true;
         }
 
-        //положение монетки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 pos = itemInfoUI.coinIcon.transform.localPosition;
         pos.x = StaticDatas._coinDelta(itemInfoUI.priceText.text.Length);
         itemInfoUI.coinIcon.transform.localPosition = pos;
@@ -183,7 +183,7 @@ public class ItemInfo
             }
         }
 
-        //уведомляем подписчиков
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         EventManager.Trigger(GameEvents.ItemSold, id);
     }
     public void BuyItem()
@@ -202,7 +202,7 @@ public class ItemInfo
 
         GameManager.DecreaseMoney(buyPrice);
 
-        //уведомляем подписчиков
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         EventManager.Trigger(GameEvents.ItemBought, id);
     }
     public virtual void UpgradeItem()
@@ -214,7 +214,7 @@ public class ItemInfo
 
         GameManager.InventoryData.UpgradeItem(id);
 
-        //уведомляем подписчиков
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         EventManager.Trigger(GameEvents.ItemBought, id);
     }
     public void LoadInventorySlotUI(InventorySlotUI slotUI)
@@ -234,11 +234,11 @@ public class ItemInfo
     {
         itemInfoUI.itemInfo = this;
 
-        itemInfoUI.gameObject.SetActive(true);//включаем
+        itemInfoUI.gameObject.SetActive(true);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-        itemInfoUI.nameText.text = itemName;//имя
+        itemInfoUI.nameText.text = itemName;//пїЅпїЅпїЅ
 
-        itemInfoUI.image.sprite = itemSprite;//картинка
+        itemInfoUI.image.sprite = itemSprite;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (spriteSize.x < 90)
             itemInfoUI.imageTransform.sizeDelta = spriteSize;
         else
@@ -248,13 +248,13 @@ public class ItemInfo
         }
         int level = GameManager.InventoryData.levels[id];
 
-        itemInfoUI.lvlText.text = $"УР. {level + 1}";
+        itemInfoUI.lvlText.text = $"пїЅпїЅ. {level + 1}";
 
         //Sell
 
         itemInfoUI.sellPriceText.text = StaticDatas._sellPrice(buyPrice).ToString();
         
-        //положение монетки Sell
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Sell
         Vector3 posS = itemInfoUI.sellCoinIcon.transform.localPosition;
         posS.x = StaticDatas._coinDelta(itemInfoUI.sellPriceText.text.Length);
         itemInfoUI.sellCoinIcon.transform.localPosition = posS;
@@ -267,12 +267,12 @@ public class ItemInfo
 
             itemInfoUI.upgradePriceText.text = upgradePrices[level + 1].ToString();
 
-            //положение монетки Upgrade
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Upgrade
             Vector3 posU = itemInfoUI.upgradeCoinIcon.transform.localPosition;
             posU.x = StaticDatas._coinDelta(itemInfoUI.upgradePriceText.text.Length);
             itemInfoUI.upgradeCoinIcon.transform.localPosition = posU;
 
-            //хватает ли денег
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             if (!GameManager.EnoughMoney(upgradePrices[level + 1]))
             {
                 itemInfoUI.upgradeButton.interactable = false;

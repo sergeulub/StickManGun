@@ -27,12 +27,13 @@ public class GameManager : MonoBehaviour
     public static int playerExp
     {
         get => PlayerPrefs.GetInt("playerExp", 0);
-        set => PlayerPrefs.SetInt("playerExp", value);
+        //set => PlayerPrefs.SetInt("playerExp", value);
+        set => PlayerPrefs.SetInt("playerExp", 10);
     }
 
 
     public static InventoryData InventoryData = new InventoryData();
-    public static ArtefactsData ArtefactsData = new ArtefactsData();
+    public static ArtefactsData ArtefactsData;
 
     private void Awake()
     {

@@ -12,7 +12,7 @@ public class InventoryOld : MonoBehaviour
     public int prevCell = 0;
     
     public DataBase data; 
-    public PlayerLoadout playerLoadout; // ScriptObj для 6 объектов, которые отправятся в бой
+    public PlayerLoadout playerLoadout; // ScriptObj пїЅпїЅпїЅ 6 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ
 
     [SerializeField] TMP_Text _moneyText;
 
@@ -24,15 +24,15 @@ public class InventoryOld : MonoBehaviour
     [Space]
     [SerializeField] GameObject[] itemInfo;
     [Space]
-    [SerializeField] public List<int> inventory = new List<int>();// в каждой ячейке свой ID предмета
-    [SerializeField] public List<int> arsenal = new List<int>();//1 - если предмет куплен, 0 - если нет
+    [SerializeField] public List<int> inventory = new List<int>();// пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    [SerializeField] public List<int> arsenal = new List<int>();//1 - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, 0 - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
     [SerializeField] public List<int> lvls = new List<int>();
 
 
     private Item currentItem;
     private int currentCell = 0;
 
-    private Dictionary<int, string> speedDict = new Dictionary<int, string> { { 1, "Бег" }, { 2, "Быстрая ходьба" }, { 3, "Ходьба" } };
+    private Dictionary<int, string> speedDict = new Dictionary<int, string> { { 1, "пїЅпїЅпїЅ" }, { 2, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" }, { 3, "пїЅпїЅпїЅпїЅпїЅпїЅ" } };
 
     private void Awake()
     {
@@ -191,7 +191,7 @@ public class InventoryOld : MonoBehaviour
 
             itemInfo[2].GetComponent<TMP_Text>().text = item.name;
 
-            itemInfo[3].GetComponent<Text>().text = "Ур. " + (lvls[item.id] + 1).ToString();
+            itemInfo[3].GetComponent<Text>().text = "пїЅпїЅ. " + (lvls[item.id] + 1).ToString();
             if (lvls[item.id] != 9)
             {
                 itemInfo[4].GetComponent<TMP_Text>().text = item.upgradePrices[lvls[item.id]].ToString();
@@ -210,7 +210,7 @@ public class InventoryOld : MonoBehaviour
                 itemInfo[4].transform.parent.gameObject.GetComponent<Button>().interactable = false;
             }
 
-            itemInfo[5].GetComponent<TMP_Text>().text = (item.buyPriсe/2).ToString();
+            itemInfo[5].GetComponent<TMP_Text>().text = (item.buyPrice/2).ToString();
 
             Vector3 pos2 = itemInfo[16].transform.localPosition;
             pos2.x = 3.7f + 5.85f * itemInfo[5].GetComponent<TMP_Text>().text.Length;
@@ -223,7 +223,7 @@ public class InventoryOld : MonoBehaviour
                     itemInfo[i].SetActive(true);
                 }
                 itemInfo[7].SetActive(true);
-                itemInfo[6].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "урон";
+                itemInfo[6].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅ";
                 if (item.id != 5)
                 {
                     itemInfo[6].transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = item.damageValues[lvls[item.id]].ToString();
@@ -245,7 +245,7 @@ public class InventoryOld : MonoBehaviour
                     new Vector3(-9.45f + itemInfo[6].transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text.Length * 9.1f, -4.2228f, 0);
                 itemInfo[6].transform.GetChild(4).gameObject.GetComponent<Image>().sprite = item.damageSprite;
 
-                itemInfo[7].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "урон в секунду";
+                itemInfo[7].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 if (item.id != 5)
                 {
                     itemInfo[7].transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = ((int)(item.damageValues[lvls[item.id]] / item.shotTime)).ToString();
@@ -268,37 +268,37 @@ public class InventoryOld : MonoBehaviour
                     new Vector3(-9.45f + itemInfo[7].transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text.Length * 9.1f, -4.2228f, 0);
                 itemInfo[7].transform.GetChild(4).gameObject.GetComponent<Image>().sprite = item.damagePerSecSprite;
 
-                itemInfo[8].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "перезарядка";
+                itemInfo[8].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 string reloadSpeedStr;
                 if (item.reloadTime > 2.5f)
-                    reloadSpeedStr = "медленная";
+                    reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else if (item.reloadTime > 1.75f)
-                    reloadSpeedStr = "нормальная";
+                    reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else if (item.reloadTime > 1f)
-                    reloadSpeedStr = "быстрая";
+                    reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else
-                    reloadSpeedStr = "очень быстрая";
+                    reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 itemInfo[8].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = reloadSpeedStr;
                 itemInfo[8].transform.GetChild(3).gameObject.GetComponent<Image>().sprite = item.reloadSprite;
 
-                itemInfo[9].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "передвижение";
+                itemInfo[9].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 itemInfo[9].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = speedDict[item.speedValue];
                 itemInfo[9].transform.GetChild(3).gameObject.GetComponent<Image>().sprite = item.speedSlowdownSprite;
 
-                itemInfo[10].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "обойма";
+                itemInfo[10].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅ";
                 itemInfo[10].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.cageValue.ToString();
                 itemInfo[10].transform.GetChild(3).gameObject.GetComponent<Image>().sprite = item.cageSprite;
 
-                itemInfo[11].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "скорость стрельбы";
+                itemInfo[11].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 string shootSpeedStr;
                 if (item.shotTime > 0.25f)
-                    shootSpeedStr = "медленная";
+                    shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else if (item.shotTime > 0.13f)
-                    shootSpeedStr = "нормальная";
+                    shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else if (item.shotTime > 0.06f)
-                    shootSpeedStr = "быстрая";
+                    shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 else
-                    shootSpeedStr = "очень быстрая";
+                    shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
                 itemInfo[11].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = shootSpeedStr;
                 itemInfo[11].transform.GetChild(3).gameObject.GetComponent<Image>().sprite = item.shootSpeedSprite;
             }
@@ -366,7 +366,7 @@ public class InventoryOld : MonoBehaviour
         }
 
     }
-    public void _UpgradeСonfirm()
+    public void _UpgradeConfirm()
     {
         itemInfo[12].SetActive(true);
         itemInfo[13].SetActive(false);
@@ -377,7 +377,7 @@ public class InventoryOld : MonoBehaviour
         pos2.x = 3.7f + 5.85f * itemInfo[4].GetComponent<TMP_Text>().text.Length;
         itemInfo[17].transform.localPosition = pos2;
     }
-    public void _SellСonfirm()
+    public void _SellConfirm()
     {
         itemInfo[12].SetActive(true);
         itemInfo[13].SetActive(true);
@@ -403,7 +403,7 @@ public class InventoryOld : MonoBehaviour
         UpdateInventory();
         itemInfo[12].SetActive(false);
         itemInfo[0].SetActive(false);
-        GameManager.AddMoney(currentItem.buyPriсe / 2);
+        GameManager.AddMoney(currentItem.buyPrice / 2);
 
         var ni = new CultureInfo(CultureInfo.CurrentCulture.Name).NumberFormat;
 
@@ -434,7 +434,7 @@ public class InventoryOld : MonoBehaviour
             }
             else
             {
-                Debug.Log("Не достаточно денег");
+                Debug.Log("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
             }
         }
     }
@@ -444,9 +444,9 @@ public class InventoryOld : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             playerLoadout.activeItems[i] = inventory[26 + i];
-            Debug.Log($"Герой берёт с собой {data.items[playerLoadout.activeItems[i]].name}");
+            Debug.Log($"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ {data.items[playerLoadout.activeItems[i]].name}");
         }
-        Debug.Log($"В бой!");
+        Debug.Log($"пїЅ пїЅпїЅпїЅ!");
         
     }
 }

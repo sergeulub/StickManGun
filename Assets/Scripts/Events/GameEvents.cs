@@ -13,6 +13,7 @@ public static class GameEvents
     public const string ItemSold = "ItemSold";
     public const string InventoryOpened = "InventoryOpened";
     public const string ShopOpened = "ShopOpened";
+    public const string PrepareForGame = "PrepareForGame";
     public const string ArtifactsOpened = "ArtifactsOpened";
     public const string ItemClicked = "ItemClicked";
     public const string ItemDragEnded = "ItemDragEnded";

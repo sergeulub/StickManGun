@@ -8,45 +8,45 @@ using UnityEngine;
 public class Weapons: ItemInfo
 {
     [Space(10)]
-    [Header("Информация по оружию")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ")]
 
     [Space(10)]
-    [Header("Тип")]
+    [Header("пїЅпїЅпїЅ")]
     public WeaponType weaponType;
 
     [Space(10)]
-    [Header("Урон")]
+    [Header("пїЅпїЅпїЅпїЅ")]
     public int damageValue;
     public List<int> upgradeDamageValues;
 
     [Space(10)]
-    [Header("Обойма")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅ")]
     public int cageValue;
 
     [Space(10)]
-    [Header("Скорость")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public int speedValue;
 
     [Space(10)]
-    [Header("Перезарядка")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public float shotTime;
     public float reloadTime;
 
     [Space(10)]
-    [Header("Разброс")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public float scatterValue;
 
     [Space(10)]
-    [Header("Стрельба")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public float flightLength;
     public Vector2 firePointLocalPos;
     public float _weaponDeltaAngle;
     public float _weaponDeltaAngleByDistance;
-    public GameObject flamePrefab;//только для огнемёта
+    public GameObject flamePrefab;//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 
 
-    private Dictionary<int, string> speedDict = new Dictionary<int, string> { { 1, "Бег" }, { 2, "Быстрая ходьба" }, { 3, "Ходьба" } };
+    private Dictionary<int, string> speedDict = new Dictionary<int, string> { { 1, "пїЅпїЅпїЅ" }, { 2, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" }, { 3, "пїЅпїЅпїЅпїЅпїЅпїЅ" } };
 
     public override void LoadShopItemInfo(ShopItemInfoUI itemInfo, MenuSprites sprites)
     {
@@ -54,50 +54,50 @@ public class Weapons: ItemInfo
         List<BonusUI> bonuses = itemInfo.bonusesUI;
 
         bonuses[0].gameObject.SetActive(true);
-        bonuses[0].nameText.text = "урон";
+        bonuses[0].nameText.text = "пїЅпїЅпїЅпїЅ";
         bonuses[0].valueText.text = damageValue.ToString();
         bonuses[0].image.sprite = sprites.damageSprite;
 
         bonuses[1].gameObject.SetActive(true);
-        bonuses[1].nameText.text = "урон в секунду";
+        bonuses[1].nameText.text = "пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[1].valueText.text = Mathf.RoundToInt(damageValue / shotTime).ToString();
         bonuses[1].image.sprite = sprites.damagePerSecSprite;
 
         bonuses[2].gameObject.SetActive(true);
-        bonuses[2].nameText.text = "перезарядка";
+        bonuses[2].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         string reloadSpeedStr;
         if (reloadTime > 2.5f)
-            reloadSpeedStr = "медленная";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (reloadTime > 1.75f)
-            reloadSpeedStr = "нормальная";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (reloadTime > 1f)
-            reloadSpeedStr = "быстрая";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else
-            reloadSpeedStr = "очень быстрая";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[2].valueText.text = reloadSpeedStr;
         bonuses[2].image.sprite = sprites.reloadSprite;
 
         bonuses[3].gameObject.SetActive(true);
-        bonuses[3].nameText.text = "передвижение";
+        bonuses[3].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[3].valueText.text = speedDict[speedValue];
         bonuses[3].image.sprite = sprites.speedSlowdownSprite;
 
         bonuses[4].gameObject.SetActive(true);
-        bonuses[4].nameText.text = "обойма";
+        bonuses[4].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[4].valueText.text = cageValue.ToString();
         bonuses[4].image.sprite = sprites.cageSprite;
 
         bonuses[5].gameObject.SetActive(true);
-        bonuses[5].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "скорость стрельбы";
+        bonuses[5].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         string shootSpeedStr;
         if (shotTime > 0.25f)
-            shootSpeedStr = "медленная";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (shotTime > 0.13f)
-            shootSpeedStr = "нормальная";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (shotTime > 0.06f)
-            shootSpeedStr = "быстрая";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else
-            shootSpeedStr = "очень быстрая";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[5].valueText.text = shootSpeedStr;
         bonuses[5].image.sprite = sprites.shootSpeedSprite;
     }
@@ -116,13 +116,13 @@ public class Weapons: ItemInfo
         
         BonusInventoryUI bonus1 = bonuses[0] as BonusInventoryUI;
         bonus1.gameObject.SetActive(true);
-        bonus1.nameText.text = "урон";
+        bonus1.nameText.text = "пїЅпїЅпїЅпїЅ";
         bonus1.valueText.text = upgradeDamageValues[level].ToString();
         bonus1.image.sprite = sprites.damageSprite;
 
         BonusInventoryUI bonus2 = bonuses[1] as BonusInventoryUI;
         bonus2.gameObject.SetActive(true);
-        bonus2.nameText.text = "урон в секунду";
+        bonus2.nameText.text = "пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonus2.valueText.text = Mathf.RoundToInt(upgradeDamageValues[level] / shotTime).ToString();
         bonus2.image.sprite = sprites.damagePerSecSprite;
         if (level != 9)
@@ -130,12 +130,12 @@ public class Weapons: ItemInfo
             bonus1.upgradeValueText.text = $"+{upgradeDamageValues[level + 1] - upgradeDamageValues[level]}";
             bonus2.upgradeValueText.text = $"+{Mathf.RoundToInt((upgradeDamageValues[level + 1] - upgradeDamageValues[level]) / shotTime)}";
 
-            //положение bonus1 upgradeText
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ bonus1 upgradeText
             Vector3 pos1 = bonus1.upgradeTextTransform.transform.localPosition;
             pos1.x = StaticDatas._upgradeTextDelta(bonus1.valueText.text.Length, bonus1.valueText.text.Contains("%"));
             bonus1.upgradeTextTransform.transform.localPosition = pos1;
 
-            //положение bonus2 upgradeText
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ bonus2 upgradeText
             Vector3 pos2 = bonus2.upgradeTextTransform.transform.localPosition;
             pos2.x = StaticDatas._upgradeTextDelta(bonus2.valueText.text.Length, bonus2.valueText.text.Contains("%"));
             bonus2.upgradeTextTransform.transform.localPosition = pos2;
@@ -144,40 +144,40 @@ public class Weapons: ItemInfo
             bonus2.upgradeValueText.text = "";
 
         bonuses[2].gameObject.SetActive(true);
-        bonuses[2].nameText.text = "перезарядка";
+        bonuses[2].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         string reloadSpeedStr;
         if (reloadTime > 2.5f)
-            reloadSpeedStr = "медленная";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (reloadTime > 1.75f)
-            reloadSpeedStr = "нормальная";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (reloadTime > 1f)
-            reloadSpeedStr = "быстрая";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else
-            reloadSpeedStr = "очень быстрая";
+            reloadSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[2].valueText.text = reloadSpeedStr;
         bonuses[2].image.sprite = sprites.reloadSprite;
 
         bonuses[3].gameObject.SetActive(true);
-        bonuses[3].nameText.text = "передвижение";
+        bonuses[3].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[3].valueText.text = speedDict[speedValue];
         bonuses[3].image.sprite = sprites.speedSlowdownSprite;
 
         bonuses[4].gameObject.SetActive(true);
-        bonuses[4].nameText.text = "обойма";
+        bonuses[4].nameText.text = "пїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[4].valueText.text = cageValue.ToString();
         bonuses[4].image.sprite = sprites.cageSprite;
 
         bonuses[5].gameObject.SetActive(true);
-        bonuses[5].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "скорость стрельбы";
+        bonuses[5].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         string shootSpeedStr;
         if (shotTime > 0.25f)
-            shootSpeedStr = "медленная";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (shotTime > 0.13f)
-            shootSpeedStr = "нормальная";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else if (shotTime > 0.06f)
-            shootSpeedStr = "быстрая";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         else
-            shootSpeedStr = "очень быстрая";
+            shootSpeedStr = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         bonuses[5].valueText.text = shootSpeedStr;
         bonuses[5].image.sprite = sprites.shootSpeedSprite;
     }
