@@ -196,9 +196,9 @@ public class ItemInfo
                 index = i; break;
             }
         }
-
         GameManager.InventoryData.SetItem(index, id);
         GameManager.InventoryData.SetArsenal(id, true);
+        GameManager.InventoryData.UpgradeItem(id);
 
         GameManager.DecreaseMoney(buyPrice);
 
@@ -208,7 +208,7 @@ public class ItemInfo
     public virtual void UpgradeItem()
     {
         int level = GameManager.InventoryData.levels[id];
-        int buyPrice = upgradePrices[level + 1];
+        int buyPrice = upgradePrices[level];
 
         GameManager.DecreaseMoney(buyPrice);
 
@@ -265,7 +265,7 @@ public class ItemInfo
         {
             itemInfoUI.upgradeButton.gameObject.SetActive(true);
 
-            itemInfoUI.upgradePriceText.text = upgradePrices[level + 1].ToString();
+            itemInfoUI.upgradePriceText.text = upgradePrices[level].ToString();
 
             //��������� ������� Upgrade
             Vector3 posU = itemInfoUI.upgradeCoinIcon.transform.localPosition;

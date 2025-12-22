@@ -41,6 +41,39 @@ public class Inventory : MonoBehaviour
     {
         OpenConfirmSellWindow();
     }
+
+    [ContextMenu("Log")]
+    public void LogInfo()
+    {   
+        for (int i = 0; i < StaticDatas._quantityItems; i++)
+        {   
+            ItemInfo item = info._allItems[i];
+            string _name = $"РџСЂРµРґРјРµС‚ {item.itemName} (ID: {item.id})";
+            string _level = $"; СѓСЂРѕРІРµРЅСЊ РїСЂРѕРєР°С‡РєРё: {GameManager.InventoryData.levels[i]}"; 
+            string _pos = GameManager.InventoryData.arsenal[i] == 1? $"; РєСѓРїР»РµРЅ": $"; РЅРµ РєСѓРїР»РµРЅ";
+            
+            
+            Debug.Log(_name + _level + _pos);
+        }
+        for (int i = 0; i < StaticDatas._boostsCount; i++)
+        {   
+            ItemInfo item = info.boosts[i];
+            string _name = $"Р‘РѕРЅСѓСЃ {item.itemName} (ID: {item.id})";
+            string _level = $"; СѓСЂРѕРІРµРЅСЊ РїСЂРѕРєР°С‡РєРё: {GameManager.ArtefactsData.boostsLevels[i]}";            
+            
+            Debug.Log(_name + _level);
+        }
+        for (int i = 0; i < StaticDatas._deployableCount; i++)
+        {   
+            ItemInfo item = info.deployables[i];
+            string _name = $"Р‘РѕРЅСѓСЃ {item.itemName} (ID: {item.id})";
+            string _level = $"; СѓСЂРѕРІРµРЅСЊ РїСЂРѕРєР°С‡РєРё: {GameManager.ArtefactsData.deployablesLevels[i]}";    
+            string _pos = GameManager.ArtefactsData.deployablesArsenal[i] == 1? $"; РґРѕСЃС‚СѓРїРµРЅ": $"; РЅРµ РґРѕСЃС‚СѓРїРµРЅ ";
+
+            
+            Debug.Log(_name + _level + _pos);
+        }
+    }
     public void _Upgrade()
     {
         Upgrade();
@@ -51,8 +84,8 @@ public class Inventory : MonoBehaviour
     }
     private void LoadInventoryInfo()
     {
-        List<int> playerInventory = GameManager.InventoryData.slotItemIDs; // твой список из 30 ячеек с ID предметов
-        List<ItemInfo> allItems = info.GetAllItems(); // список всех предметов (включая Weapons, Boots и т.д.)
+        List<int> playerInventory = GameManager.InventoryData.slotItemIDs; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 30 пїЅпїЅпїЅпїЅпїЅ пїЅ ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        List<ItemInfo> allItems = info.GetAllItems(); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Weapons, Boots пїЅ пїЅ.пїЅ.)
 
         for (int i = 0; i < StaticDatas._inventoryLength; i++)
         {
@@ -76,25 +109,25 @@ public class Inventory : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning($"Не найден предмет с ID {itemID}");
+                    Debug.LogWarning($"пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ ID {itemID}");
                 }
             }
         }
 
         UpdatePlayerVisual();
 
-        for (int i = 0; i < StaticDatas._inventoryLength; i++)
-        {
-            int ID = GameManager.InventoryData.slotItemIDs[i];
-            if (ID != StaticDatas._emptyID)
-            {
-                Debug.Log($"В ячейке {i} находится {itemInfos[ID].itemName}");
-            }
-            else
-            {
-                Debug.Log($"В ячейке {i} пусто");
-            }
-        }
+        // for (int i = 0; i < StaticDatas._inventoryLength; i++)
+        // {
+        //     int ID = GameManager.InventoryData.slotItemIDs[i];
+        //     if (ID != StaticDatas._emptyID)
+        //     {
+        //         Debug.Log($"пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {i} пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ {itemInfos[ID].itemName}");
+        //     }
+        //     else
+        //     {
+        //         Debug.Log($"пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {i} пїЅпїЅпїЅпїЅпїЅ");
+        //     }
+        // }
     }
     private void SetEmptySlotVisual(InventorySlotUI slotUI, int slotIndex)
     {
@@ -102,7 +135,7 @@ public class Inventory : MonoBehaviour
         slotUI.imageTransform.localPosition = Vector2.zero;
 
         
-        if (slotIndex >= StaticDatas._weaponID1) // слоты игрока
+        if (slotIndex >= StaticDatas._weaponID1) // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         {   
             switch (slotIndex)
             {
@@ -130,7 +163,7 @@ public class Inventory : MonoBehaviour
                     break;
             }
         }
-        else // обычные ячейки
+        else // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         {
             slotUI.image.sprite = null;
         }
@@ -141,7 +174,7 @@ public class Inventory : MonoBehaviour
         List<int> inventory = GameManager.InventoryData.slotItemIDs;
         List<ItemInfo> allItems = info.GetAllItems();
 
-        // Шлем — ID 29
+        // пїЅпїЅпїЅпїЅ пїЅ ID 29
         int hatID = inventory[StaticDatas._hatID];
         if (hatID != -1)
         {
@@ -154,7 +187,7 @@ public class Inventory : MonoBehaviour
             playerVisual.UpdateHat(null);
         }
 
-        // Ботинки — ID 28
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ ID 28
         int bootsID = inventory[StaticDatas._bootsID];
         if (bootsID != -1)
         {
@@ -167,7 +200,7 @@ public class Inventory : MonoBehaviour
             playerVisual.UpdateBoots(null);
         }
 
-        // Оружие — ID 26 или 27
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ ID 26 пїЅпїЅпїЅ 27
         int weaponID = inventory[StaticDatas._weaponID1];
         if (weaponID == StaticDatas._emptyID)
             weaponID = inventory[StaticDatas._weaponID2];
@@ -182,7 +215,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            playerVisual.UpdateWeapon(StaticDatas._emptyID); // -1: голые руки
+            playerVisual.UpdateWeapon(StaticDatas._emptyID); // -1: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         }
     }
     private void LoadItemInfo(ItemInfo item)

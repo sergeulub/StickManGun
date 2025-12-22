@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [Serializable]
@@ -7,9 +8,9 @@ public class InventoryData
 {
     // 30 �����: 0-25 �������, 26-31 � ���� ������
     public List<int> slotItemIDs = new List<int>(new int[StaticDatas._inventoryLength]);
-    public List<int> arsneal = new List<int>(new int[StaticDatas._inventoryLength + 1]);
-    public List<int> isNew = new List<int>(new int[StaticDatas._inventoryLength + 1]); 
-    public List<int> levels = new List<int>(new int[StaticDatas._inventoryLength + 1]);
+    public List<int> arsenal = new List<int>(new int[StaticDatas._quantityItems]);
+    public List<int> isNew = new List<int>(new int[StaticDatas._quantityItems]); 
+    public List<int> levels = new List<int>(new int[StaticDatas._quantityItems]);
 
     public InventoryData()  
     {
@@ -17,25 +18,27 @@ public class InventoryData
         {
             slotItemIDs[i] = StaticDatas._emptyID; // -1 �������� ������ ������
         }
-        for (int i = 0; i < StaticDatas._inventoryLength + 1; i++)
+        for (int i = 0; i < StaticDatas._quantityItems; i++)
         {
-            arsneal[i] = 0;
+            arsenal[i] = 0;
         }
-        for (int i = 0; i < StaticDatas._inventoryLength + 1; i++)
+        for (int i = 0; i < StaticDatas._quantityItems; i++)
         {
-            levels[i] = 0;
+            levels[i] = -1;
         }
-        for (int i = 0; i < StaticDatas._inventoryLength + 1; i++)
+        for (int i = 0; i < StaticDatas._quantityItems; i++)
         {
             isNew[i] = 0;
         }
-        slotItemIDs[0] = StaticDatas._firstWeaponID;
-        slotItemIDs[1] = StaticDatas._firstBootsID;
-        slotItemIDs[2] = StaticDatas._firstHatID;
-        slotItemIDs[3] = StaticDatas._firstRingID;
+        //Добавление элементов  в инвентарь
+        // slotItemIDs[0] = StaticDatas._firstWeaponID;
+        // slotItemIDs[1] = StaticDatas._firstBootsID;
+        // slotItemIDs[2] = StaticDatas._firstHatID;
+        // slotItemIDs[3] = StaticDatas._firstRingID;
 
-        isNew[2] = 1;
-        isNew[1] = 1;
+        //нОВЫЕ ПРЕДМЕТЫ ДЛЯ ТЕСТА
+        // isNew[2] = 1;
+        // isNew[1] = 1;
     }
 
     public void SetItem(int slotIndex, int itemID)
@@ -59,12 +62,12 @@ public class InventoryData
 
     public bool isBought(int itemID)
     {
-        return arsneal[itemID] == 1;
+        return arsenal[itemID] == 1;
     }
 
     public void SetArsenal(int itemID, bool isBought)
     {
-        arsneal[itemID] = isBought ? 1 : 0;
+        arsenal[itemID] = isBought ? 1 : 0;
     }
 
     public void UpgradeItem(int itemID)
