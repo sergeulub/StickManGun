@@ -5,22 +5,19 @@ using UnityEngine;
 public class ArtefactsData
 {   
     public List<int> boostsLevels = new List<int>(new int[StaticDatas._boostsCount]);
-    public List<int> deployablesArsenal = new List<int>(new int[StaticDatas._deployableCount]);
     public List<int> deployablesLevels = new List<int>(new int[StaticDatas._deployableCount]);
     public List<int> deployablesIsNew = new List<int>(new int[StaticDatas._deployableCount]);
 
     public ArtefactsData()
     {
         for (int i = 0; i < StaticDatas._deployableCount; i++)
-            deployablesLevels[i] = -1;
-        for (int i = 0; i < StaticDatas._deployableCount; i++)
-            deployablesArsenal[i] = 0;
+            deployablesLevels[i] = 0;
         for (int i = 0; i < StaticDatas._boostsCount; i++)
             boostsLevels[i] = 0;
         for (int i = 0; i < StaticDatas._deployableCount; i++)
             deployablesIsNew[i] = 0;
+
     }
-    
     public void UpgradeDeploable(int itemID)
     {
         deployablesLevels[itemID] += 1;
