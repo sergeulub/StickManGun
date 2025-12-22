@@ -31,6 +31,7 @@ public class Info : ScriptableObject
         }
         return _allItems;
     }
+    
     [ContextMenu("load")]
     public void Load()
     {
