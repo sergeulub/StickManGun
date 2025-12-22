@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         get => PlayerPrefs.GetInt("money", 10000);
         set => PlayerPrefs.SetInt("money", value); 
     }
-    public static int playerLevel = 7;
+    public static int playerLevel = 4;
     /*{
         get => PlayerPrefs.GetInt("playerLevel", 0);
         set => PlayerPrefs.SetInt("playerLevel", value);
@@ -30,14 +30,14 @@ public class GameManager : MonoBehaviour
         set => PlayerPrefs.SetInt("playerExp", value);
     }
 
+
     public static InventoryData InventoryData = new InventoryData();
-    public static ArtefactsData ArtefactsData = new ArtefactsData();
+    public static ArtefactsData ArtefactsData;
 
     private void Awake()
     {
-        //EventManagerOld.OnWantBuyItem += CheckBuy;
+        EventManagerOld.OnWantBuyItem += CheckBuy;
         PlayerPrefs.DeleteAll();
-
     }
     private void CheckBuy(int price, int index)
     {

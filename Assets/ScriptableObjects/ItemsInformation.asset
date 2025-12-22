@@ -40,11 +40,11 @@ MonoBehaviour:
     itemSprite: {fileID: -285526460, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     spriteSize: {x: 56, y: 42}
     buyPrice: 150
-    upgradePrices: 96000000af000000c8000000e6000000090100002c0100005e01000090010000cc01000012020000
+    upgradePrices: 0000000096000000af000000c8000000e6000000090100002c0100005e01000090010000cc01000012020000
     requiredLevel: 0
     weaponType: 0
     damageValue: 20
-    upgradeDamageValues: 1400000016000000180000001a0000001d0000002000000023000000270000002b0000002f000000
+    upgradeDamageValues: 000000001400000016000000180000001a0000001d0000002000000023000000270000002b0000002f000000
     cageValue: 12
     speedValue: 1
     shotTime: 0.35
@@ -55,17 +55,38 @@ MonoBehaviour:
     _weaponDeltaAngle: 125.1
     _weaponDeltaAngleByDistance: 0
     flamePrefab: {fileID: 0}
+  - itemName: DEAGLE
+    id: 2
+    itemType: 0
+    itemSprite: {fileID: 1207113037, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 52, y: 41}
+    buyPrice: 200
+    upgradePrices: 00000000c8000000e600000009010000310100005e01000090010000d10100001202000062020000c1020000
+    requiredLevel: 0
+    weaponType: 0
+    damageValue: 30
+    upgradeDamageValues: 000000001e0000002100000024000000280000002c00000030000000350000003a0000004000000047000000
+    cageValue: 7
+    speedValue: 1
+    shotTime: 0.45
+    reloadTime: 3.2
+    scatterValue: 0.05
+    flightLength: 10
+    firePointLocalPos: {x: -0.19, y: -1.54}
+    _weaponDeltaAngle: 125
+    _weaponDeltaAngleByDistance: 0
+    flamePrefab: {fileID: 0}
   - itemName: MP5
     id: 3
     itemType: 0
     itemSprite: {fileID: -919711854, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     spriteSize: {x: 72, y: 43}
     buyPrice: 250
-    upgradePrices: d200000022010000400100007c010000b8010000f40100004402000099020000fd02000070030000
+    upgradePrices: 00000000fa000000220100004a0100007c010000b8010000f40100004402000099020000fd02000070030000
     requiredLevel: 2
     weaponType: 5
     damageValue: 18
-    upgradeDamageValues: 120000001400000016000000180000001a0000001d0000002000000023000000270000002b000000
+    upgradeDamageValues: 00000000120000001400000016000000180000001a0000001d0000002000000023000000270000002b000000
     cageValue: 30
     speedValue: 1
     shotTime: 0.08
@@ -82,7 +103,7 @@ MonoBehaviour:
     itemSprite: {fileID: 1678445328, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     spriteSize: {x: 43, y: 42}
     buyPrice: 230
-    upgradePrices: e600000009010000310100005e01000090010000d10100001202000062020000c10200002a030000
+    upgradePrices: 00000000e600000009010000310100005e01000090010000d10100001202000062020000c10200002a030000
     requiredLevel: 4
     weaponType: 5
     damageValue: 16
@@ -103,11 +124,11 @@ MonoBehaviour:
     itemSprite: {fileID: 1516761479, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     spriteSize: {x: 150, y: 42}
     buyPrice: 300
-    upgradePrices: 2c0100005e01000090010000cc0100000802000044020000a8020000bc02000034030000ac030000
+    upgradePrices: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     requiredLevel: 4
     weaponType: 1
     damageValue: 15
-    upgradeDamageValues: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+    upgradeDamageValues: 
     cageValue: 7
     speedValue: 2
     shotTime: 0.8
@@ -270,7 +291,7 @@ MonoBehaviour:
     itemSprite: {fileID: -132747358, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     spriteSize: {x: 62, y: 62}
     buyPrice: 250
-    upgradePrices: 7d000000a5000000cd000000f50000001d010000450100006d01000095010000bd010000e5010000
+    upgradePrices: 000000007d000000a5000000cd000000f50000001d010000450100006d01000095010000bd010000e5010000
     requiredLevel: 1
     animationSprite: {fileID: -1295423660, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
     bonus1Name: "\u0421\u041A\u041E\u0420\u0421\u0422\u042C \u041F\u0415\u0420\u0415\u0414\u0412\u0418\u0416\u0415\u041D\u0418\u042F"
@@ -1029,4 +1050,252 @@ MonoBehaviour:
     _weaponDeltaAngle: 0
     _weaponDeltaAngleByDistance: 0
     flamePrefab: {fileID: 0}
-  _allItems: []
+  _allItems:
+  - itemName: Empty
+    id: 0
+    itemType: 0
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: -1
+    upgradePrices: 
+    requiredLevel: 0
+  - itemName: USP
+    id: 1
+    itemType: 0
+    itemSprite: {fileID: -285526460, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 56, y: 42}
+    buyPrice: 150
+    upgradePrices: 0000000096000000af000000c8000000e6000000090100002c0100005e01000090010000cc01000012020000
+    requiredLevel: 0
+  - itemName: DEAGLE
+    id: 2
+    itemType: 0
+    itemSprite: {fileID: 1207113037, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 52, y: 41}
+    buyPrice: 200
+    upgradePrices: 00000000c8000000e600000009010000310100005e01000090010000d10100001202000062020000c1020000
+    requiredLevel: 0
+  - itemName: MP5
+    id: 3
+    itemType: 0
+    itemSprite: {fileID: -919711854, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 72, y: 43}
+    buyPrice: 250
+    upgradePrices: 00000000fa000000220100004a0100007c010000b8010000f40100004402000099020000fd02000070030000
+    requiredLevel: 2
+  - itemName: UZI
+    id: 4
+    itemType: 0
+    itemSprite: {fileID: 1678445328, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 43, y: 42}
+    buyPrice: 230
+    upgradePrices: 00000000e600000009010000310100005e01000090010000d10100001202000062020000c10200002a030000
+    requiredLevel: 4
+  - itemName: SHOTGUN
+    id: 5
+    itemType: 0
+    itemSprite: {fileID: 1516761479, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 150, y: 42}
+    buyPrice: 300
+    upgradePrices: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    requiredLevel: 4
+  - itemName: P90
+    id: 6
+    itemType: 0
+    itemSprite: {fileID: -885430123, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 42}
+    buyPrice: 1000
+    upgradePrices: 
+    requiredLevel: 5
+  - itemName: M4A1
+    id: 7
+    itemType: 0
+    itemSprite: {fileID: 1841417534, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 95, y: 42}
+    buyPrice: 1500
+    upgradePrices: 
+    requiredLevel: 7
+  - itemName: AK47
+    id: 8
+    itemType: 0
+    itemSprite: {fileID: -41771450, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 141, y: 50}
+    buyPrice: 2000
+    upgradePrices: 
+    requiredLevel: 9
+  - itemName: AWP
+    id: 9
+    itemType: 0
+    itemSprite: {fileID: 2002221487, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 148, y: 43}
+    buyPrice: 2500
+    upgradePrices: 
+    requiredLevel: 11
+  - itemName: MINIGUN
+    id: 10
+    itemType: 0
+    itemSprite: {fileID: 873438017, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 98, y: 42}
+    buyPrice: 5000
+    upgradePrices: 
+    requiredLevel: 12
+  - itemName: FLAMESHOT
+    id: 11
+    itemType: 0
+    itemSprite: {fileID: -1758308173, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 67, y: 42}
+    buyPrice: 5000
+    upgradePrices: 
+    requiredLevel: 12
+  - itemName: EMPTY
+    id: 12
+    itemType: 1
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 
+    requiredLevel: 0
+  - itemName: "\u041A\u041E\u0416\u0410\u041D\u041D\u042B\u0415 \u0411\u041E\u0422\u0418\u041D\u041A\u0418"
+    id: 13
+    itemType: 1
+    itemSprite: {fileID: -132747358, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 250
+    upgradePrices: 000000007d000000a5000000cd000000f50000001d010000450100006d01000095010000bd010000e5010000
+    requiredLevel: 1
+  - itemName: "\u0416\u0415\u041B\u0415\u0417\u041D\u042B\u0415 \u0411\u041E\u0422\u0418\u041D\u041A\u0418"
+    id: 14
+    itemType: 1
+    itemSprite: {fileID: -1466578193, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 63, y: 62}
+    buyPrice: 500
+    upgradePrices: 7d000000a5000000cd000000f50000001d010000450100006d01000095010000bd010000
+    requiredLevel: 4
+  - itemName: "\u0411\u041E\u0422\u0418\u041D\u041A\u0418 \u0416\u0418\u0417\u041D\u0418"
+    id: 15
+    itemType: 1
+    itemSprite: {fileID: 1082506420, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 61}
+    buyPrice: 750
+    upgradePrices: 2c0100007c010000cc0100001c0200006c020000d002000048030000b60300002e040000
+    requiredLevel: 7
+  - itemName: "\u0421\u0422\u0410\u041B\u042C\u041D\u042B\u0415 \u0411\u041E\u0422\u0418\u041D\u041A\u0418"
+    id: 16
+    itemType: 1
+    itemSprite: {fileID: 640582095, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 63, y: 63}
+    buyPrice: 1000
+    upgradePrices: 2c0100007c010000cc0100001c0200006c020000d002000048030000b60300002e040000
+    requiredLevel: 10
+  - itemName: "\u0411\u041E\u0422\u0418\u041D\u041A\u0418 \u042D\u041B\u042C\u0424\u0410"
+    id: 17
+    itemType: 1
+    itemSprite: {fileID: -1067373511, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 1250
+    upgradePrices: 8a02000084030000b0040000dc0500003a070000fc0800008c0a00001c0c0000ac0d0000
+    requiredLevel: 12
+  - itemName: EMPTY
+    id: 18
+    itemType: 2
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 320000006400000096000000c8000000fa0000002c0100005e0100005e0100005e010000
+    requiredLevel: 0
+  - itemName: "\u0428\u0410\u041F\u041E\u0427\u041A\u0410"
+    id: 19
+    itemType: 2
+    itemSprite: {fileID: 1261361942, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 60, y: 55}
+    buyPrice: 250
+    upgradePrices: 000000007d000000a5000000cd000000f50000001d010000450100000901000095010000bd010000e5010000
+    requiredLevel: 2
+  - itemName: "\u041A\u041E\u0416\u0410\u041D\u041D\u0410\u042F \u0428\u0410\u041F\u041A\u0410"
+    id: 20
+    itemType: 2
+    itemSprite: {fileID: -1573706605, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 250
+    upgradePrices: 96000000c8000000fa0000002c0100005e01000090010000c2010000c2010000c2010000
+    requiredLevel: 5
+  - itemName: "\u0416\u0415\u041B\u0415\u0417\u041D\u042B\u0419 \u0428\u041B\u0415\u041C"
+    id: 21
+    itemType: 2
+    itemSprite: {fileID: 1125321109, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 60, y: 55}
+    buyPrice: 350
+    upgradePrices: c8000000fa0000002c0100005e01000090010000f4010000580200005802000058020000
+    requiredLevel: 8
+  - itemName: "\u0421\u0422\u0410\u041B\u042C\u041D\u041E\u0419 \u0428\u041B\u0415\u041C"
+    id: 22
+    itemType: 2
+    itemSprite: {fileID: -1833299584, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 500
+    upgradePrices: 
+    requiredLevel: 12
+  - itemName: EMPTY
+    id: 23
+    itemType: 3
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 
+    requiredLevel: 0
+  - itemName: "\u0411\u0420\u041E\u041D\u0417\u041E\u0412\u041E\u0415 \u041A\u041E\u041B\u042C\u0426\u041E"
+    id: 24
+    itemType: 3
+    itemSprite: {fileID: 747081797, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 120
+    upgradePrices: 00000000780000008c000000a0000000b4000000d2000000f0000000180100004001000072010000a9010000
+    requiredLevel: 4
+  - itemName: "\u0421\u0415\u0420\u0415\u0411\u0420\u042F\u041D\u041E\u0415 \u041A\u041E\u041B\u042C\u0426\u041E"
+    id: 25
+    itemType: 3
+    itemSprite: {fileID: 114813124, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 250
+    upgradePrices: 320000006400000096000000af000000c8000000e1000000fa0000002c0100005e010000
+    requiredLevel: 7
+  - itemName: "\u0417\u041E\u041B\u041E\u0422\u041E\u0415 \u041A\u041E\u041B\u042C\u0426\u041E"
+    id: 26
+    itemType: 3
+    itemSprite: {fileID: 2015751036, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 500
+    upgradePrices: c8000000fa0000002c0100005e01000090010000f4010000580200005802000058020000
+    requiredLevel: 10
+  - itemName: "\u041A\u041E\u041B\u042C\u0426\u041E \u0417\u0414\u0420\u041E\u0412\u042C\u042F"
+    id: 27
+    itemType: 3
+    itemSprite: {fileID: 1036490970, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 500
+    upgradePrices: c8000000fa0000002c0100005e01000090010000f4010000580200005802000058020000
+    requiredLevel: 4
+  - itemName: "\u041A\u041E\u041B\u042C\u0426\u041E \u041C\u0410\u041D\u042B"
+    id: 28
+    itemType: 3
+    itemSprite: {fileID: 1280674550, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 500
+    upgradePrices: c8000000fa0000002c0100005e01000090010000f4010000580200005802000058020000
+    requiredLevel: 6
+  - itemName: "\u041A\u041E\u041B\u042C\u0426\u041E \u0420\u0415\u0413\u0415\u041D\u0415\u0420\u0410\u0426\u0418\u0418"
+    id: 29
+    itemType: 3
+    itemSprite: {fileID: -1709282428, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 62, y: 62}
+    buyPrice: 750
+    upgradePrices: 2c0100007c010000cc0100001c0200006c020000d002000048030000b60300002e040000
+    requiredLevel: 12
+  - itemName: 
+    id: -1
+    itemType: 0
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 
+    requiredLevel: 0
