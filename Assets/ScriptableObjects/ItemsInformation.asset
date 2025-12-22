@@ -55,6 +55,27 @@ MonoBehaviour:
     _weaponDeltaAngle: 125.1
     _weaponDeltaAngleByDistance: 0
     flamePrefab: {fileID: 0}
+  - itemName: DEAGLE
+    id: 2
+    itemType: 0
+    itemSprite: {fileID: 1207113037, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    spriteSize: {x: 52, y: 41}
+    buyPrice: 200
+    upgradePrices: e600000009010000310100005e01000090010000d10100001202000062020000c1020000
+    requiredLevel: 2
+    weaponType: 0
+    damageValue: 30
+    upgradeDamageValues: 000000001e0000002100000024000000280000002c00000030000000350000003a0000004000000047000000
+    cageValue: 7
+    speedValue: 1
+    shotTime: 0.45
+    reloadTime: 3.2
+    scatterValue: 0.05
+    flightLength: 10
+    firePointLocalPos: {x: -0.19, y: -1.54}
+    _weaponDeltaAngle: 125
+    _weaponDeltaAngleByDistance: 0
+    flamePrefab: {fileID: 0}
   - itemName: MP5
     id: 3
     itemType: 0
