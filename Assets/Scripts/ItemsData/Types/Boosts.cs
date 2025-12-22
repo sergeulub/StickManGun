@@ -26,25 +26,22 @@ public class Boosts: ItemInfo
         int level = GameManager.ArtefactsData.boostsLevels[base.id];
 
         cell.levelText.text = (level+1).ToString();
-
     }
     public void LoadItemInfo(BoostItemInfoUI itemInfoUI)
     {
         itemInfoUI.itemInfo = this;
 
-        itemInfoUI.gameObject.SetActive(true);//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        itemInfoUI.gameObject.SetActive(true);//включаем
 
-        itemInfoUI.nameText.text = itemName;//пїЅпїЅпїЅ
+        itemInfoUI.nameText.text = itemName;//имя
 
         itemInfoUI.descriptionText.text = description;
 
-        itemInfoUI.image.sprite = itemSprite;//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-
-        itemInfoUI.imageTransform.sizeDelta = new Vector2(75, 75);
+        itemInfoUI.image.sprite = itemSprite;//картинка
 
         int level = GameManager.ArtefactsData.boostsLevels[base.id];
 
-        itemInfoUI.lvlText.text = $"пїЅпїЅ. {level + 1}";
+        itemInfoUI.lvlText.text = $"УР. {level + 1}";
 
         itemInfoUI.upgradeButton.gameObject.SetActive(true);
         itemInfoUI.otherButton.SetActive(false);
@@ -77,7 +74,7 @@ public class Boosts: ItemInfo
 
         bonus1.upgradeValueText.text = $"{empty}+{upgradeValue}";
 
-        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  bonus1 upgradeText
+        //положение  bonus1 upgradeText
         Vector3 pos1 = bonus1.upgradeTextTransform.transform.localPosition;
         pos1.x = StaticDatas._upgradeDeployablesTextDelta(bonus1.valueText.text.Length - 1);
         bonus1.upgradeTextTransform.transform.localPosition = pos1;

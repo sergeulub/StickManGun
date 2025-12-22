@@ -11165,7 +11165,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 852563450}
   sprites: {fileID: 2079211960}
   itemInfoUI: {fileID: 1255216398}
-  mainMenuUI: {fileID: 2079211961}
+  mainMenuUI: {fileID: 0}
   playerVisual: {fileID: 7343326843620529945}
 --- !u!224 &760004298 stripped
 RectTransform:

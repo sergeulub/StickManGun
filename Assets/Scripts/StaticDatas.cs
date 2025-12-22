@@ -143,7 +143,6 @@ public class StaticDatas
 
     #region Inventory
     public static int _inventoryLength = 32;
-    public static int _quantityItems = 30;
     public static int _weaponID1 = 26;
     public static int _weaponID2 = 27;
     public static int _bootsID = 28;

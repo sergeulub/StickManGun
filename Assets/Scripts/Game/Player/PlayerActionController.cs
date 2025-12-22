@@ -32,7 +32,7 @@ public class PlayerActionController : MonoBehaviour
         itemInfos = info.GetAllItems();
     }
     void Start()
-    {   
+    {
         weaponDatas[0] = itemInfos[playerLoadout.activeItems[0]] as Weapons;
         equippedWeapons[0] =  WeaponFactory.CreateWeapon(weaponDatas[0]);
         equippedWeapons[0].Initialize(this, firePoint, bulletLinePrefab, weaponSprite, mainCamera, weaponPivot, playerTransform);
@@ -43,7 +43,6 @@ public class PlayerActionController : MonoBehaviour
             equippedWeapons[1] = WeaponFactory.CreateWeapon(weaponDatas[1]);
             equippedWeapons[1].Initialize(this, firePoint, bulletLinePrefab, weaponSprite, mainCamera, weaponPivot, playerTransform);
         }
-        
         EquipWeapon(0);
         /*
         Debug.Log($"����� �������� � ������� . ��������������: ��� {weaponDatas[0].weaponType},���� {weaponDatas[0].damageValue}, " +
@@ -51,48 +50,7 @@ public class PlayerActionController : MonoBehaviour
         Debug.Log($"������ ������. ��������������: ��� {weaponDatas[1].weaponType},���� {weaponDatas[1].damageValue}, ����� ����� ��������� {weaponDatas[1].shotTime}, " +
             $"�������� � ������ {weaponDatas[1].cageValue}");
         */
-        DebugPlayerLoadout();
     }
-
-    private void LogItem(string label, int itemID, List<ItemInfo> items)
-    {
-        if (itemID < 0)
-        {
-            Debug.Log($"{label}: EMPTY");
-        }
-        else
-        {
-            Debug.Log($"{label}: {items[itemID].itemName} (ID {itemID}) (LVL {GameManager.InventoryData.levels[itemID]})");
-        }
-    }
-    private void DebugPlayerLoadout()
-    {
-        List<ItemInfo> items = info.GetAllItems();
-
-        Debug.Log("===== PLAYER LOADOUT =====");
-
-        // 1–2. Оружие
-        LogItem("Main weapon", playerLoadout.activeItems[0], items);
-        LogItem("Second weapon", playerLoadout.activeItems[1], items);
-
-        // 3–6. Экипировка
-        LogItem("Boots", playerLoadout.activeItems[2], items);
-        LogItem("Helmet", playerLoadout.activeItems[3], items);
-        LogItem("Ring 1", playerLoadout.activeItems[4], items);
-        LogItem("Ring 2", playerLoadout.activeItems[5], items);
-        Debug.Log("==========================");
-
-        for (int i = 0; i < 4; i++)
-        {
-            Debug.Log($"{info.deployables[i].itemName} LVL {playerLoadout.deployableLevels[i]}");
-        }
-        for (int i = 0; i < 8; i++)
-        {
-            Debug.Log($"{info.boosts[i].itemName} LVL {playerLoadout.bonusLevels[i]}");
-        }
-    }
-
-
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Q))
