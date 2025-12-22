@@ -19,6 +19,11 @@ public class ArtefactsData
             boostsLevels[i] = 0;
         for (int i = 0; i < StaticDatas._deployableCount; i++)
             deployablesIsNew[i] = 0;
+        
+        deployablesArsenal[0] = 1;
+        deployablesArsenal[1] = 1;
+        deployablesLevels[0] = 0;
+        deployablesLevels[1] = 0;
     }
     
     public void UpgradeDeploable(int itemID)

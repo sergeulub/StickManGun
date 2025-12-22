@@ -25,7 +25,7 @@ public class Boosts: ItemInfo
 
         int level = GameManager.ArtefactsData.boostsLevels[base.id];
 
-        cell.levelText.text = (level+1).ToString();
+        cell.levelText.text = (level).ToString();
 
     }
     public void LoadItemInfo(BoostItemInfoUI itemInfoUI)
@@ -44,7 +44,7 @@ public class Boosts: ItemInfo
 
         int level = GameManager.ArtefactsData.boostsLevels[base.id];
 
-        itemInfoUI.lvlText.text = $"��. {level + 1}";
+        itemInfoUI.lvlText.text = $"��. {level}";
 
         itemInfoUI.upgradeButton.gameObject.SetActive(true);
         itemInfoUI.otherButton.SetActive(false);
@@ -64,7 +64,8 @@ public class Boosts: ItemInfo
 
         bonus1.nameText.text = bonusName;
 
-        float value1 = bonusValue + StaticDatas._valueByLevel(level, upgradeValue);
+        //float value1 = bonusValue + StaticDatas._valueByLevel(level, upgradeValue);
+        float value1 = StaticDatas._valueByLevel(level, upgradeValue);
         bonus1.valueText.text = $"{value1} {bonusSign}";
 
         bonus1.image.sprite = bonusSprite;

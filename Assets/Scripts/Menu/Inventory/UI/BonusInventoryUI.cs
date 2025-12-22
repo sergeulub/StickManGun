@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class BonusInventoryUI : BonusUI
     public bool canBeUpgraded = true;
 
     public Image darkFon;
+
+    public Image lightFon;
     public TMP_Text upgradeValueText;
     public RectTransform upgradeTextTransform;
 

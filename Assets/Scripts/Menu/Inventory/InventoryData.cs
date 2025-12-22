@@ -31,7 +31,19 @@ public class InventoryData
             isNew[i] = 0;
         }
         //Добавление элементов  в инвентарь
-        // slotItemIDs[0] = StaticDatas._firstWeaponID;
+        slotItemIDs[0] = StaticDatas._firstWeaponID;
+        arsenal[StaticDatas._firstWeaponID] = 1;
+        levels[StaticDatas._firstWeaponID] = 8;
+        slotItemIDs[1] = StaticDatas._firstBootsID;
+        arsenal[StaticDatas._firstBootsID] = 1;
+        levels[StaticDatas._firstBootsID] = 8;
+        slotItemIDs[2] = StaticDatas._firstHatID;
+        arsenal[StaticDatas._firstHatID] = 1;
+        levels[StaticDatas._firstHatID] = 8;
+        slotItemIDs[3] = StaticDatas._firstRingID;
+        arsenal[StaticDatas._firstRingID] = 1;
+        levels[StaticDatas._firstRingID] = 8;
+
         // slotItemIDs[1] = StaticDatas._firstBootsID;
         // slotItemIDs[2] = StaticDatas._firstHatID;
         // slotItemIDs[3] = StaticDatas._firstRingID;

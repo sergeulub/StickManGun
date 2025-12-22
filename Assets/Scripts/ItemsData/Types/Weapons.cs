@@ -129,6 +129,15 @@ public class Weapons: ItemInfo
         {
             bonus1.upgradeValueText.text = $"+{upgradeDamageValues[level + 1] - upgradeDamageValues[level]}";
             bonus2.upgradeValueText.text = $"+{Mathf.RoundToInt((upgradeDamageValues[level + 1] - upgradeDamageValues[level]) / shotTime)}";
+            
+            bonus1.lightFon.gameObject.SetActive(true);
+            bonus2.lightFon.gameObject.SetActive(true);
+            
+            bonus1.darkFon.gameObject.SetActive(true);
+            bonus2.darkFon.gameObject.SetActive(true);
+
+            bonus1.fonImage.gameObject.SetActive(false);
+            bonus2.fonImage.gameObject.SetActive(false);
 
             //��������� bonus1 upgradeText
             Vector3 pos1 = bonus1.upgradeTextTransform.transform.localPosition;
@@ -141,8 +150,22 @@ public class Weapons: ItemInfo
             bonus2.upgradeTextTransform.transform.localPosition = pos2;
         }
         else
+        {   
+            bonus1.upgradeValueText.text = "";
             bonus2.upgradeValueText.text = "";
-
+            
+            bonus1.lightFon.gameObject.SetActive(false);
+            bonus2.lightFon.gameObject.SetActive(false);
+            
+            bonus1.darkFon.gameObject.SetActive(false);
+            bonus2.darkFon.gameObject.SetActive(false);
+            
+            bonus1.fonImage.gameObject.SetActive(true);
+            bonus2.fonImage.gameObject.SetActive(true);
+            
+            Debug.Log("max");
+        }
+            
         bonuses[2].gameObject.SetActive(true);
         bonuses[2].nameText.text = "�����������";
         string reloadSpeedStr;

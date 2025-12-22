@@ -40,7 +40,6 @@ public class Shop : MonoBehaviour
     {
         header = headerIndex;
         LoadHeader(header);
-        Debug.Log("Changed to" + header);
     }
     public void _BuyItem(int _indexItem)
     {

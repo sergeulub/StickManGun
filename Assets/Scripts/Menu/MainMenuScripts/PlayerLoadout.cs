@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerLoadout : ScriptableObject
 {
     // То, что реально идёт в бой (экипировка)
-    public List<int> activeItems = new List<int>(6);
+    public List<int> activeItems = new List<int>(){0,0,0,0,0,0};
 
-    public List<int> itemsLevels = new List<int>(6);
+    public List<int> itemsLevels = new List<int>(){0,0,0,0,0,0};
 
     // Прокачка бонусов (itemID -> level)
-    public List<int> bonusLevels = new List<int>(8);
+    public List<int> bonusLevels = new List<int>(){0,0,0,0,0,0,0,0};
 
     // Прокачка deployables (itemID -> level)
-    public List<int> deployableLevels = new List<int>(4);
+    public List<int> deployableLevels = new List<int>(){0,0,0,0};
 
     public void Clear()
-    {   
+    {      
+        Debug.Log(itemsLevels.Count);
         for (int i = 0; i < 6; i++)
         {
             activeItems[i] = -1;
@@ -28,7 +29,7 @@ public class PlayerLoadout : ScriptableObject
         }
         for (int i = 0; i < 8; i++)
         {
-            bonusLevels[i] = -1;
+            bonusLevels[i] = 0;
         }
     }
     public void FillPlayerLoadout(Info info)
@@ -69,12 +70,54 @@ public class PlayerLoadout : ScriptableObject
 
             // --- 3. Остальная экипировка (без логики сдвига) ---
             activeItems[2] = bootsID;
+            itemsLevels[2] = inventory.levels[bootsID];
             activeItems[3] = hatID;
+            itemsLevels[3] = inventory.levels[hatID];
             activeItems[4] = ring1ID;
+            itemsLevels[4] = inventory.levels[ring1ID];
             activeItems[5] = ring2ID;
+            itemsLevels[5] = inventory.levels[ring2ID];
             
         // 🔹 2. Перенос прокачки бонусов и deployables
         bonusLevels = GameManager.ArtefactsData.boostsLevels;
         deployableLevels = GameManager.ArtefactsData.deployablesLevels;
+    }
+
+    private void LogItem(string label, int itemID, List<ItemInfo> items)
+    {
+        if (itemID < 0)
+        {
+            Debug.Log($"{label}: EMPTY");
+        }
+        else
+        {
+            Debug.Log($"{label}: {items[itemID].itemName} (ID {itemID}) (LVL {GameManager.InventoryData.levels[itemID]})");
+        }
+    }
+    public void DebugPlayerLoadout(Info info)
+    {
+        List<ItemInfo> items = info.GetAllItems();
+
+        Debug.Log("===== PLAYER LOADOUT =====");
+
+        // 1–2. Оружие
+        LogItem("Main weapon", activeItems[0], items);
+        LogItem("Second weapon", activeItems[1], items);
+
+        // 3–6. Экипировка
+        LogItem("Boots", activeItems[2], items);
+        LogItem("Helmet", activeItems[3], items);
+        LogItem("Ring 1", activeItems[4], items);
+        LogItem("Ring 2", activeItems[5], items);
+        Debug.Log("==========================");
+
+        for (int i = 0; i < 4; i++)
+        {
+            Debug.Log($"{info.deployables[i].itemName} LVL {deployableLevels[i]}");
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            Debug.Log($"{info.boosts[i].itemName} LVL {bonusLevels[i]}");
+        }
     }
 }

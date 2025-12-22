@@ -75,11 +75,27 @@ public class Boots: ItemInfo
         bonus1.valueText.text = $"+{upgrade1Values[level]} {bonus1Sign}";
         bonus1.image.sprite = bonus1Sprite;
         if (level != 9)
+        {
             bonus1.upgradeValueText.text = $"+{upgrade1Values[level + 1] - upgrade1Values[level]}";
-        else
-            bonus1.upgradeValueText.text = "";
 
-        //положение  bonus1 upgradeText
+            bonus1.lightFon.gameObject.SetActive(true);
+            
+            bonus1.darkFon.gameObject.SetActive(true);
+
+            bonus1.fonImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            bonus1.upgradeValueText.text = "";
+            
+            bonus1.lightFon.gameObject.SetActive(false);
+            
+            bonus1.darkFon.gameObject.SetActive(false);
+            
+            bonus1.fonImage.gameObject.SetActive(true);
+        }
+
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  bonus1 upgradeText
         Vector3 pos1 = bonus1.upgradeTextTransform.transform.localPosition;
         pos1.x = StaticDatas._upgradeTextDelta(bonus1.valueText.text.Length, bonus1.valueText.text.Contains("%"));
         bonus1.upgradeTextTransform.transform.localPosition = pos1;
@@ -101,11 +117,27 @@ public class Boots: ItemInfo
             bonus2.image.sprite = bonus2Sprite;
 
             if (level != 9)
+            {
                 bonus2.upgradeValueText.text = $"+{upgrade2Values[level + 1] - upgrade2Values[level]}";
-            else
-                bonus2.upgradeValueText.text = "";
 
-            //положение  bonus2 upgradeText
+                bonus2.lightFon.gameObject.SetActive(true);
+            
+                bonus2.darkFon.gameObject.SetActive(true);
+                
+                bonus2.fonImage.gameObject.SetActive(false);
+            }
+            else
+            {
+                bonus2.upgradeValueText.text = "";
+                
+                bonus2.lightFon.gameObject.SetActive(false);
+                
+                bonus2.darkFon.gameObject.SetActive(false);
+                
+                bonus2.fonImage.gameObject.SetActive(true);
+            }
+
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  bonus2 upgradeText
             Vector3 pos2 = bonus2.upgradeTextTransform.transform.localPosition;
             pos2.x = StaticDatas._upgradeTextDelta(bonus2.valueText.text.Length, bonus2.valueText.text.Contains("%"));
             bonus2.upgradeTextTransform.transform.localPosition = pos2;
