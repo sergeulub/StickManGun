@@ -17,6 +17,7 @@ public abstract class Weapon
     protected int currentAmmo;
     protected bool isReloading = false;
     protected bool isFiring = false;
+    protected bool isSwitching= false;
     protected float nextShotTime = 0f;
     protected float extraWeaponAngle = 0f;
     private Coroutine fireRoutine;
@@ -46,13 +47,13 @@ public abstract class Weapon
     
     public virtual void StartFiring()
     {
-        if (isFiring || isReloading) return;
+        if (isFiring || isReloading || isSwitching) return;
         isFiring = true;
         fireRoutine = ownerMono.StartCoroutine(FireContinuously());
     }
 
     public virtual void StopFiring()
-    {
+    {   
         isFiring = false;
         if (fireRoutine != null)
         {
@@ -189,4 +190,8 @@ public abstract class Weapon
         Debug.Log("Fire");
     }
     
+    public void SetSwitchingParametr(bool value)
+    {
+        isSwitching = value;
+    }
 }

@@ -75,7 +75,7 @@ public class Hat : ItemInfo
         bonus1.image.sprite = bonus1Sprite;
         if (level != 9)
         {
-            bonus1.upgradeValueText.text = $"+{upgrade1Values[level + 1] - upgrade1Values[level]}";
+            bonus1.upgradeValueText.text = $"+{MathF.Round(upgrade1Values[level + 1] - upgrade1Values[level], 2)}";
             
             bonus1.lightFon.gameObject.SetActive(true);
             
@@ -115,7 +115,7 @@ public class Hat : ItemInfo
             bonus2.image.sprite = bonus2Sprite;
             if (level != 9)
             {
-                bonus2.upgradeValueText.text = $"+{upgrade2Values[level + 1] - upgrade2Values[level]}";
+                bonus2.upgradeValueText.text = $"+{MathF.Round(upgrade1Values[level + 1] - upgrade1Values[level], 2)}";
 
                 bonus2.lightFon.gameObject.SetActive(true);
             

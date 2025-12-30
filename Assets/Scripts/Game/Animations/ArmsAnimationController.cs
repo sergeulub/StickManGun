@@ -26,6 +26,7 @@ public class ArmsAnimationController : MonoBehaviour
     private void UpdateWeaponParameters(int weaponID)
     {
         armsAnimator.SetInteger("WeaponID", weaponID);
+        EventManager.Trigger(GameEvents.VisualWeaponChanged);
     }
     private void UpdateRunningParameters(bool isRunning)
     {
