@@ -19,7 +19,6 @@ public static class GameEvents
     public const string ItemDragEnded = "ItemDragEnded";
     public const string ItemShopOpened = "ItemShopOpened";
     public const string LevelUp = "LevelUp";
-    public const string VisualWeaponChanged = "VisualWeaponChanged";
 
 
 }

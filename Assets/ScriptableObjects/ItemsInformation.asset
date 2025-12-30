@@ -274,7 +274,7 @@ MonoBehaviour:
     buyPrice: 0
     upgradePrices: 
     requiredLevel: 0
-    animationSprite: {fileID: 1773061637, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    animationSprite: {fileID: 0}
     bonus1Name: 
     bonus1Sign: 
     bonus1Value: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
     buyPrice: 0
     upgradePrices: 320000006400000096000000c8000000fa0000002c0100005e0100005e0100005e010000
     requiredLevel: 0
-    animationSprite: {fileID: 1773061637, guid: a839fa758f40d5f4fac5f4a0dcfa572d, type: 3}
+    animationSprite: {fileID: 0}
     bonus1Name: "\u0431\u0440\u043E\u043D\u044F"
     bonus1Sign: 
     bonus1Value: 0.02
@@ -1312,3 +1312,11 @@ MonoBehaviour:
     buyPrice: 750
     upgradePrices: 2c0100007c010000cc0100001c0200006c020000d002000048030000b60300002e0400004c040000
     requiredLevel: 12
+  - itemName: 
+    id: -1
+    itemType: 0
+    itemSprite: {fileID: 0}
+    spriteSize: {x: 0, y: 0}
+    buyPrice: 0
+    upgradePrices: 
+    requiredLevel: 0

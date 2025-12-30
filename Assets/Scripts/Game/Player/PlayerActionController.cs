@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,7 +15,6 @@ public class PlayerActionController : MonoBehaviour
     public Transform weaponPivot;
     public Transform playerTransform;
     public PlayerUIController playerUIController;
-    public GameFlowManager gameFlowManager;
 
 
     [Header("Runtime")]
@@ -27,15 +25,6 @@ public class PlayerActionController : MonoBehaviour
     private List<Weapons> weaponDatas;//������ �� ������� �� ��������
     private List<ItemInfo> itemInfos;
 
-
-    private void OnEnable()
-    {
-        EventManager.Subscribe(GameEvents.VisualWeaponChanged, VisualWeaponChanged);
-    }
-    private void OnDisable()
-    {
-        EventManager.Unsubscribe(GameEvents.VisualWeaponChanged, VisualWeaponChanged);
-    }
     private void Awake()
     {
         equippedWeapons = new List<Weapon>(new Weapon[2]);
@@ -72,7 +61,7 @@ public class PlayerActionController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            _SwitchWeapon();
+            SwitchWeapon();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -83,13 +72,13 @@ public class PlayerActionController : MonoBehaviour
         {
             EventManager.Trigger(GameEvents.FiringChanged, true);
         }
-        if (Input.GetMouseButtonUp(0) && !gameFlowManager.isPaused)
+        if (Input.GetMouseButtonUp(0))
         {
             EventManager.Trigger(GameEvents.FiringChanged, false);
             equippedWeapons[currentWeaponIndex].StopFiring();
         }
 
-        if (Input.GetMouseButton(0) && !gameFlowManager.isPaused)
+        if (Input.GetMouseButton(0))
         {   
             //�������
             Vector2 aimDirection = equippedWeapons[currentWeaponIndex].Aim().normalized;
@@ -97,7 +86,7 @@ public class PlayerActionController : MonoBehaviour
             {
                 //�������
                 equippedWeapons[currentWeaponIndex].RotateWeapon();
-                //Debug.Log("aim");
+                Debug.Log("aim");
             }
             else
             {
@@ -106,32 +95,17 @@ public class PlayerActionController : MonoBehaviour
             
         }
     }
+    public void SwitchWeapon()
+    {
+        equippedWeapons[currentWeaponIndex].CancelReload();
+        
 
-    public void _SwitchWeapon()
-    {   
-        SwitchWeapon();
-    }
-    private void SwitchWeapon()
-    {   
-        if (playerLoadout.activeItems[PlayerLoadout.weapon2] != -1)
-        {
-            equippedWeapons[currentWeaponIndex].SetSwitchingParametr(true);
-            equippedWeapons[currentWeaponIndex].CancelReload();
-            equippedWeapons[currentWeaponIndex].StopFiring();
-
-            currentWeaponIndex = 1 - currentWeaponIndex; // 0 -> 1, 1 -> 0
-
-            equippedWeapons[currentWeaponIndex].SetSwitchingParametr(true);
-            EquipWeapon(currentWeaponIndex);
-            /*
-            Debug.Log($"������ � ����� � ����� ������ {weaponDatas[currentWeaponIndex].weaponName}. ��������������: ��� {weaponDatas[currentWeaponIndex].type},���� {weaponDatas[currentWeaponIndex].damageValue}, " +
-                $"����� ����� ��������� {weaponDatas[currentWeaponIndex].shotTime}, �������� � ������ {weaponDatas[currentWeaponIndex].cageValue}");
-            Debug.Log($"��������� ������ {weaponDatas[1 - currentWeaponIndex].weaponName}.");*/
-        }
-        else
-        {
-            Debug.Log("Нельзя! Только одно оружие");
-        }
+        currentWeaponIndex = 1 - currentWeaponIndex; // 0 -> 1, 1 -> 0
+        EquipWeapon(currentWeaponIndex);
+        /*
+        Debug.Log($"������ � ����� � ����� ������ {weaponDatas[currentWeaponIndex].weaponName}. ��������������: ��� {weaponDatas[currentWeaponIndex].type},���� {weaponDatas[currentWeaponIndex].damageValue}, " +
+            $"����� ����� ��������� {weaponDatas[currentWeaponIndex].shotTime}, �������� � ������ {weaponDatas[currentWeaponIndex].cageValue}");
+        Debug.Log($"��������� ������ {weaponDatas[1 - currentWeaponIndex].weaponName}.");*/
     }
     private void EquipWeapon(int index)
     {
@@ -149,28 +123,6 @@ public class PlayerActionController : MonoBehaviour
         EventManager.Trigger(GameEvents.WeaponChanged, weaponID);
     }
     public Weapon currentWeapon => equippedWeapons[currentWeaponIndex];
-
-    public void _Reload()
-    {
-        Reload();
-    }
-    private void Reload()
-    {
-        StartCoroutine(equippedWeapons[currentWeaponIndex].Reload());
-    }
-
-    private void VisualWeaponChanged()
-    {
-        StartCoroutine(VisualWeaponChangedIE());
-    }
-    private IEnumerator VisualWeaponChangedIE()
-    {
-        Debug.Log("cor started");
-        yield return new WaitForSeconds(0.1f);
-
-        
-        currentWeapon.SetSwitchingParametr(false);
-        Debug.Log("cor finished");
-    }
+    
 }
 

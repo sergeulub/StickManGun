@@ -29,11 +29,9 @@ public class ArtefactsData
     public void UpgradeDeploable(int itemID)
     {
         deployablesLevels[itemID] += 1;
-        GameManager.SaveGame();
     }
     public void UpgradeBoost(int itemID)
     {
         boostsLevels[itemID] += 1;
-        GameManager.SaveGame();
     }
 }
