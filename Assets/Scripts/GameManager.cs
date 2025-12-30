@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     }
     private static void InitNewGame()
     {
-        Debug.Log("Никаких данных нет. Игры начинается заново.");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.");
         money = 12000;
         playerLevel = 1;
         playerExp = 0;
@@ -109,5 +109,16 @@ public class GameManager : MonoBehaviour
         GameManager.ArtefactsData.deployablesLevels = data.deployablesLevels;
         GameManager.ArtefactsData.deployablesIsNew = data.deployablesIsNew;
     }
-
+    public static void AddExp(int amount)
+    {
+        int expForNextLevel = StaticDatas.expList[playerLevel];
+        playerExp += amount;
+        if (playerExp >= expForNextLevel)
+        {
+            playerExp -= expForNextLevel;
+            playerLevel += 1;
+            EventManager.Trigger(GameEvents.LevelUp);
+        }
+        Debug.Log(playerExp + "/ " + playerLevel);
+    }
 }

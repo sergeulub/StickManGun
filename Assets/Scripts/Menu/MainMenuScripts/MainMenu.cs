@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
         int cellID = 0;
         for (int i = 0; i < itemInfos.Count; i++)
         {
+            Debug.Log(i + ": " + cellID);
             cellID += itemInfos[i].LevelUpLoad(menuUI.newItems.newItemsImage[cellID]);
         }
     }

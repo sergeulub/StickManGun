@@ -19,5 +19,12 @@ public class MainMenuUI : MonoBehaviour
         int money = GameManager.money;
         moneyText.text = StaticDatas._moneyTextFormat(money);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W)) {
+            GameManager.AddExp(50);
+        }
 
+
+    }
 }

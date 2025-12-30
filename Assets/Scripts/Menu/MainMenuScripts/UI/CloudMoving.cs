@@ -2,35 +2,57 @@ using UnityEngine;
 
 public class CloudMoving : MonoBehaviour
 {
-    [SerializeField] Transform _transform;
-    [SerializeField] Vector3 _startPos;
-    [SerializeField] Vector3 _endPos;
-    public float _speed;
+    [Header("Начальная и конечная позиция")]
+    public Vector3 startPosition;
+    public Vector3 endPosition;
 
-    private void Start()
+    [Header("Скорость облака")]
+    public float minSpeed = 0.5f;
+    public float maxSpeed = 2.0f;
+
+    [Header("Размер облака")]
+    public float minScale = 0.5f;
+    public float maxScale = 1f;
+
+    [Header("Дальность движения влево")]
+    public float travelDistance = 1800f;
+
+    private float currentSpeed;
+    private float currentScale;
+    private Vector3 currentStartPos;
+
+    void Start()
     {
-        Reset();
+        currentStartPos = startPosition;
+        SetRandom();
     }
-    private void Update()
-    {   
-        if (_transform.position.x > _endPos.x)
+
+    void Update()
+    {
+        transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
+
+        if (transform.localPosition.x <= endPosition.x)
         {
-            Reset();
-            _transform.position = _startPos;
+            // Сброс позиции и новая скорость
+            transform.position = currentStartPos;
+            SetRandom();
         }
-        _transform.position += Vector3.right * _speed * Time.deltaTime;
     }
-    private void Reset()
+
+    void SetRandom()
     {
-        _speed = Random.value / 100f;
-        _speed = Mathf.Max(0.0012f, _speed);
-        _speed = Mathf.Min(0.0025f, _speed);
+        currentSpeed = Random.Range(minSpeed, maxSpeed);
+        currentScale = Random.Range(minScale, maxScale);
+        transform.localScale = new Vector3(currentScale, currentScale, 1);
     }
+
     [ContextMenu("Set2")]
     public void Set()
-    {   
-        _transform = GetComponent<Transform>();
-        _startPos.y = transform.position.y;
-        _endPos = _startPos + new Vector3(22f,0,0);
+    {
+        startPosition.y = transform.position.y;
+        startPosition.x = 900;
+        endPosition.y = transform.position.y;
+        endPosition.x = -900;
     }
 }
+
