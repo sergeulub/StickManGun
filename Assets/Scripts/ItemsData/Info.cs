@@ -27,7 +27,7 @@ public class Info : ScriptableObject
             _allItems.AddRange(boots);
             _allItems.AddRange(hats);
             _allItems.AddRange(rings);
-            _allItems.Add(emptyItem);
+            //_allItems.Add(emptyItem);
         }
         return _allItems;
     }

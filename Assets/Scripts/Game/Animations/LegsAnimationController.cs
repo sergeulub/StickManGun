@@ -7,6 +7,7 @@ public class LegsAnimationController : MonoBehaviour
     public Animator legsAnimator;
     public PlayerLoadout playerLoadout;
     public Info info;
+    public EquipmentImages equipmentImages;
     private void OnEnable()
     {
         EventManager.Subscribe<int>(GameEvents.WeaponChanged, UpdateSpeedParameters);
@@ -27,6 +28,7 @@ public class LegsAnimationController : MonoBehaviour
     {
         int weaponID = playerLoadout.activeItems[0];
         UpdateSpeedParameters(weaponID); // �� ��������� �����
+        SetEquipmentImages();
     }
     public void UpdateGroundParameters(bool isGrounded)
     {
@@ -44,5 +46,17 @@ public class LegsAnimationController : MonoBehaviour
     public void UpdateWalkingBackParameters(bool isWalkingBack)
     {
         legsAnimator.SetBool("IsWalkingBack", isWalkingBack);
+    }
+    private void SetEquipmentImages()
+    {
+        int bootsID = playerLoadout.activeItems[PlayerLoadout.boots];
+        int hatID = playerLoadout.activeItems[PlayerLoadout.hat];
+
+        Sprite bootsSprite = (info._allItems[bootsID] as Boots).animationSprite;
+        equipmentImages.boot1.sprite = bootsSprite;
+        equipmentImages.boot2.sprite = bootsSprite;
+
+        Sprite hatSprite = (info._allItems[hatID] as Hat).animationSprite;
+        equipmentImages.hat.sprite = hatSprite;
     }
 }

@@ -11,9 +11,5 @@ public class Loader : MonoBehaviour
         List<int> itemsToSpawn = playerLoadout.activeItems;
         // тут логика спауна оружия, брони и т.д.
         
-        foreach (int i in itemsToSpawn)
-        {
-            Debug.Log(i);
-        }
     }
 }

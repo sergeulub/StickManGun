@@ -2504,7 +2504,7 @@ TextureImporter:
         width: 254
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2512,6 +2512,27 @@ TextureImporter:
       bones: []
       spriteID: 2f442b2a355d0fc48922e11e1ce8ff70
       internalID: 1506978040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: empty
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 665
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09699737fe675b34cbf142836c32146a
+      internalID: 1773061637
       vertices: []
       indices: 
       edges: []
@@ -2639,6 +2660,7 @@ TextureImporter:
       atlas_1_0: 2111837526
       back game_fon: -216919846
       back menu_fon: -252805391
+      empty: 1773061637
       front game_fon: -1535863533
       front menu_fon: 1656095314
       iron: 1607089465
