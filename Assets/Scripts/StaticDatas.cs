@@ -176,7 +176,7 @@ public class StaticDatas
     #region GameManager
     public static List<int> expList = new List<int>() 
     {
-        100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400
+        0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400
     };
     #endregion
 }

@@ -131,7 +131,7 @@ TextureImporter:
         width: 603
         height: 616
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,6 +139,174 @@ TextureImporter:
       bones: []
       spriteID: bff72eb7f62099a439d939400611437c
       internalID: -430378169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_exp
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 930
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb11a97e88e9724ba5d20f91fbffc63
+      internalID: -1969587124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_expFon
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 882
+        width: 250
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ea8ef42621b7448bf82e8378a95c21
+      internalID: -1379149341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_expBar
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 823
+        width: 250
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ab35fb58f813941886cfd2bc18af26
+      internalID: 32473662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_mana
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 930
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36cbda37f92562469f25aa1b7b20e55
+      internalID: -215769221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_hp
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 933
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b6ec53a1886114caca991aa9fbaf39
+      internalID: -997501851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_hpBar
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 823
+        width: 250
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbdf6e70cd7a89418f276a5a92a3f3e
+      internalID: 780497820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_manaBar
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 822
+        width: 250
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b19e8dc12a1ef49b62933893a9e1fc
+      internalID: 366444733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M_statFon
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 486
+        width: 327
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 59, y: 57, z: 59, w: 59}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e388493eee2d2546b7c7db88cd7bd60
+      internalID: -1813771011
       vertices: []
       indices: 
       edges: []
@@ -154,7 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      M_exp: -1969587124
+      M_expBar: 32473662
+      M_expFon: -1379149341
       M_fon: -430378169
+      M_hp: -997501851
+      M_hpBar: 780497820
+      M_mana: -215769221
+      M_manaBar: 366444733
+      M_statFon: -1813771011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
