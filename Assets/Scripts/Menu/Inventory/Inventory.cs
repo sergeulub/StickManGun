@@ -174,7 +174,7 @@ public class Inventory : MonoBehaviour
         List<int> inventory = GameManager.InventoryData.slotItemIDs;
         List<ItemInfo> allItems = info.GetAllItems();
 
-        // пїЅпїЅпїЅпїЅ пїЅ ID 29
+        // Шлем — ID 29
         int hatID = inventory[StaticDatas._hatID];
         if (hatID != -1)
         {
@@ -187,7 +187,7 @@ public class Inventory : MonoBehaviour
             playerVisual.UpdateHat(null);
         }
 
-        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ ID 28
+        // Ботинки — ID 28
         int bootsID = inventory[StaticDatas._bootsID];
         if (bootsID != -1)
         {
@@ -200,7 +200,7 @@ public class Inventory : MonoBehaviour
             playerVisual.UpdateBoots(null);
         }
 
-        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ ID 26 пїЅпїЅпїЅ 27
+        // Оружие — ID 26 или 27
         int weaponID = inventory[StaticDatas._weaponID1];
         if (weaponID == StaticDatas._emptyID)
             weaponID = inventory[StaticDatas._weaponID2];
@@ -215,7 +215,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            playerVisual.UpdateWeapon(StaticDatas._emptyID); // -1: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+            playerVisual.UpdateWeapon(StaticDatas._emptyID); // -1: голые руки
         }
     }
     private void LoadItemInfo(ItemInfo item)

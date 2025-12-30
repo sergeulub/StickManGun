@@ -7,11 +7,28 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static int money;
-    public static int playerLevel;
-    public static int boostPoint;
+    public static int money
+    {
+        get => PlayerPrefs.GetInt("money", 10000);
+        set => PlayerPrefs.SetInt("money", value); 
+    }
+    public static int playerLevel = 4;
+    /*{
+        get => PlayerPrefs.GetInt("playerLevel", 0);
+        set => PlayerPrefs.SetInt("playerLevel", value);
+        
+    }*/
+    public static int boostPoint
+    {
+        get => PlayerPrefs.GetInt("boostPoint", 2);
+        set => PlayerPrefs.SetInt("boostPoint", value);
+    }
 
-    public static int playerExp;
+    public static int playerExp
+    {
+        get => PlayerPrefs.GetInt("playerExp", 0);
+        set => PlayerPrefs.SetInt("playerExp", value);
+    }
 
     public static InventoryData InventoryData = new InventoryData();
     public static ArtefactsData ArtefactsData = new ArtefactsData();
@@ -20,16 +37,22 @@ public class GameManager : MonoBehaviour
     {
         //EventManagerOld.OnWantBuyItem += CheckBuy;
         PlayerPrefs.DeleteAll();
-        #if UNITY_WEBGL && !UNITY_EDITOR
-            SaveManager.Init(new LocalSaveProvider());
-        #else
-            SaveManager.Init(new LocalSaveProvider());
-        #endif
-
-        LoadGame();
 
     }
+    private void CheckBuy(int price, int index)
+    {
+        if (money - price >= 0)
+        {
+            Pay(price);
 
+            EventManagerOld.SendBuyItem(price, index);
+        }
+    }
+    private void Pay(int price)
+    {
+        money -= price;
+        Debug.Log("U just have paid " + price+". Left " + money);
+    }
     public static void AddMoney(int amount)
     {
         money += amount;
@@ -57,57 +80,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
     }
-    public static void SaveGame()
-    {
-        SaveData data = new SaveData
-        {
-            inventoryData = GameManager.InventoryData,
-            money = GameManager.money,
-            playerLevel = GameManager.playerLevel,
-            boostPoint = boostPoint,
+    
 
-            boostsLevels = GameManager.ArtefactsData.boostsLevels,
-            deployablesArsenal = GameManager.ArtefactsData.deployablesArsenal,
-            deployablesLevels = GameManager.ArtefactsData.deployablesLevels,
-            deployablesIsNew = GameManager.ArtefactsData.deployablesIsNew
-        };
-
-        SaveManager.Save(data);
-    }
-    public static void LoadGame()
-    {
-        SaveManager.Load(data =>
-        {
-            if (data == null)
-            {
-                InitNewGame();
-                return;
-            }
-
-            ApplySave(data);
-        });
-
-    }
-    private static void InitNewGame()
-    {
-        Debug.Log("Никаких данных нет. Игры начинается заново.");
-        money = 12000;
-        playerLevel = 1;
-        playerExp = 0;
-        boostPoint = 10;
-        InventoryData.isNew[1] = 1;
-    }
-    private static void ApplySave(SaveData data)
-    {
-        GameManager.InventoryData = data.inventoryData;
-        GameManager.money = data.money;
-        GameManager.playerLevel = data.playerLevel;
-        GameManager.boostPoint = data.boostPoint;
-
-        GameManager.ArtefactsData.boostsLevels = data.boostsLevels;
-        GameManager.ArtefactsData.deployablesArsenal = data.deployablesArsenal;
-        GameManager.ArtefactsData.deployablesLevels = data.deployablesLevels;
-        GameManager.ArtefactsData.deployablesIsNew = data.deployablesIsNew;
-    }
 
 }
