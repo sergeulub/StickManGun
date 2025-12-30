@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         get => PlayerPrefs.GetInt("money", 10000);
         set => PlayerPrefs.SetInt("money", value); 
     }
-    public static int playerLevel = 4;
+    public static int playerLevel = 1;
     /*{
         get => PlayerPrefs.GetInt("playerLevel", 0);
         set => PlayerPrefs.SetInt("playerLevel", value);
@@ -80,7 +80,18 @@ public class GameManager : MonoBehaviour
             return false;
         }
     }
-    
+    public static void AddExp(int amount)
+    {
+        int expForNextLevel = StaticDatas.expList[playerLevel];
+        playerExp += amount;
+        if (playerExp >= expForNextLevel)
+        {
+            playerExp -= expForNextLevel;
+            playerLevel += 1;
+            EventManager.Trigger(GameEvents.LevelUp);
+        }
+        Debug.Log(playerExp + "/ " + playerLevel);
+    }
 
 
 }

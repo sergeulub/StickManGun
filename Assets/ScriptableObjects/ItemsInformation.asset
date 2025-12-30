@@ -62,7 +62,7 @@ MonoBehaviour:
     spriteSize: {x: 52, y: 41}
     buyPrice: 200
     upgradePrices: 00000000c8000000e600000009010000310100005e01000090010000d10100001202000062020000c1020000
-    requiredLevel: 0
+    requiredLevel: 1
     weaponType: 0
     damageValue: 30
     upgradeDamageValues: 000000001e0000002100000024000000280000002c00000030000000350000003a0000004000000047000000
@@ -1052,7 +1052,7 @@ MonoBehaviour:
     spriteSize: {x: 52, y: 41}
     buyPrice: 200
     upgradePrices: 00000000c8000000e600000009010000310100005e01000090010000d10100001202000062020000c1020000
-    requiredLevel: 0
+    requiredLevel: 1
   - itemName: MP5
     id: 3
     itemType: 0
