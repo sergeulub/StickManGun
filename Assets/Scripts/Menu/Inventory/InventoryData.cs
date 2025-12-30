@@ -31,18 +31,18 @@ public class InventoryData
             isNew[i] = 0;
         }
         //Добавление элементов  в инвентарь
-        slotItemIDs[0] = StaticDatas._firstWeaponID;
-        arsenal[StaticDatas._firstWeaponID] = 1;
-        levels[StaticDatas._firstWeaponID] = 8;
-        slotItemIDs[1] = StaticDatas._firstBootsID;
-        arsenal[StaticDatas._firstBootsID] = 1;
-        levels[StaticDatas._firstBootsID] = 8;
-        slotItemIDs[2] = StaticDatas._firstHatID;
-        arsenal[StaticDatas._firstHatID] = 1;
-        levels[StaticDatas._firstHatID] = 8;
-        slotItemIDs[3] = StaticDatas._firstRingID;
-        arsenal[StaticDatas._firstRingID] = 1;
-        levels[StaticDatas._firstRingID] = 8;
+        //slotItemIDs[0] = StaticDatas._firstWeaponID;
+        //arsenal[StaticDatas._firstWeaponID] = 1;
+        //levels[StaticDatas._firstWeaponID] = 8;
+        //slotItemIDs[1] = StaticDatas._firstBootsID;
+        //arsenal[StaticDatas._firstBootsID] = 1;
+        //levels[StaticDatas._firstBootsID] = 8;
+        //slotItemIDs[2] = StaticDatas._firstHatID;
+        //arsenal[StaticDatas._firstHatID] = 1;
+        //levels[StaticDatas._firstHatID] = 8;
+        //slotItemIDs[3] = StaticDatas._firstRingID;
+        //arsenal[StaticDatas._firstRingID] = 1;
+        //levels[StaticDatas._firstRingID] = 8;
 
         // slotItemIDs[1] = StaticDatas._firstBootsID;
         // slotItemIDs[2] = StaticDatas._firstHatID;
@@ -57,6 +57,7 @@ public class InventoryData
     {
         if (slotIndex >= 0 && slotIndex < slotItemIDs.Count)
             slotItemIDs[slotIndex] = itemID;
+        GameManager.SaveGame();
     }
 
     public int GetItem(int slotIndex)
@@ -70,6 +71,7 @@ public class InventoryData
     {
         if (slotIndex >= 0 && slotIndex < slotItemIDs.Count)
             slotItemIDs[slotIndex] = StaticDatas._emptyID;
+        GameManager.SaveGame();
     }
 
     public bool isBought(int itemID)
@@ -80,14 +82,17 @@ public class InventoryData
     public void SetArsenal(int itemID, bool isBought)
     {
         arsenal[itemID] = isBought ? 1 : 0;
+        GameManager.SaveGame();
     }
 
     public void UpgradeItem(int itemID)
     {
         levels[itemID] += 1;
+        GameManager.SaveGame();
     }
     public void SetZeroLevel(int itemID)
     {
         levels[itemID] = 0;
+        GameManager.SaveGame();
     }
 }

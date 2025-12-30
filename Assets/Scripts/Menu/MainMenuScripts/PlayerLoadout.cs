@@ -5,37 +5,25 @@ using UnityEngine;
 public class PlayerLoadout : ScriptableObject
 {
     // То, что реально идёт в бой (экипировка)
-    public List<int> activeItems = new List<int>(){0,0,0,0,0,0};
+    public List<int> activeItems = new List<int>();
 
-    public List<int> itemsLevels = new List<int>(){0,0,0,0,0,0};
+    public List<int> itemsLevels = new List<int>();
 
     // Прокачка бонусов (itemID -> level)
-    public List<int> bonusLevels = new List<int>(){0,0,0,0,0,0,0,0};
+    public List<int> bonusLevels = new List<int>();
 
     // Прокачка deployables (itemID -> level)
-    public List<int> deployableLevels = new List<int>(){0,0,0,0};
+    public List<int> deployableLevels = new List<int>();
 
-    public void Clear()
-    {      
-        Debug.Log(itemsLevels.Count);
-        for (int i = 0; i < 6; i++)
-        {
-            activeItems[i] = -1;
-            itemsLevels[i] = -1;
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            deployableLevels[i] = -1;
-        }
-        for (int i = 0; i < 8; i++)
-        {
-            bonusLevels[i] = 0;
-        }
-    }
+    public static int weapon1 = 0;
+    public static int weapon2 = 1;
+    public static int hat = 3;
+    public static int boots = 2;
+    public static int ring1 = 4;
+    public static int ring2 = 5;
+
     public void FillPlayerLoadout(Info info)
     {
-        Clear();
-
         InventoryData inventory = GameManager.InventoryData;
         List<ItemInfo> allItems = info.GetAllItems();
 
@@ -53,31 +41,43 @@ public class PlayerLoadout : ScriptableObject
             // --- 2. Нормализация порядка ---
             if (weapon1ID < 0 && weapon2ID >= 0)
             {
-                activeItems[0] = weapon2ID; // основное
-                itemsLevels[0] = inventory.levels[weapon2ID];
+                activeItems[weapon1] = weapon2ID; // основное
+                itemsLevels[weapon1] = f(weapon2ID, StaticDatas._firstWeaponID);
 
-                activeItems[1] = StaticDatas.EMPTY_SLOT;// второе пустое
-                itemsLevels[1] = -1;
+                activeItems[weapon2] = StaticDatas._firstWeaponID - 1;// второе пустое
+                itemsLevels[weapon2] = -1;
             }
             else
             {
-                activeItems[0] = weapon1ID;
-                itemsLevels[0] = inventory.levels[weapon1ID];
-                
-                activeItems[1] = weapon2ID;
-                itemsLevels[1] = inventory.levels[weapon2ID];
+                activeItems[weapon1] = weapon1ID;
+                itemsLevels[weapon1] = f(weapon1ID, StaticDatas._firstWeaponID);
+
+
+                activeItems[weapon2] = weapon2ID;
+                itemsLevels[weapon2] = f(weapon2ID, StaticDatas._firstWeaponID);
             }
 
             // --- 3. Остальная экипировка (без логики сдвига) ---
-            activeItems[2] = bootsID;
-            itemsLevels[2] = inventory.levels[bootsID];
-            activeItems[3] = hatID;
-            itemsLevels[3] = inventory.levels[hatID];
-            activeItems[4] = ring1ID;
-            itemsLevels[4] = inventory.levels[ring1ID];
-            activeItems[5] = ring2ID;
-            itemsLevels[5] = inventory.levels[ring2ID];
-            
+            int f(int id, int firstInTypeID)
+            {
+                if (id != -1)
+                {
+                    return id;
+                }
+                else
+                {
+                    return firstInTypeID - 1;
+                }
+            }
+            activeItems[boots] = f(bootsID, StaticDatas._firstBootsID);
+            itemsLevels[boots] = inventory.levels[f(bootsID, StaticDatas._firstBootsID)];
+            activeItems[hat] = f(hatID, StaticDatas._firstHatID);
+            itemsLevels[hat] = inventory.levels[f(bootsID, StaticDatas._firstHatID)];
+            activeItems[ring1] = f(ring1ID, StaticDatas._firstRingID);
+            itemsLevels[ring1] = inventory.levels[f(bootsID, StaticDatas._firstRingID)];
+            activeItems[ring2] = f(ring2ID, StaticDatas._firstRingID);
+            itemsLevels[ring2] = inventory.levels[f(bootsID, StaticDatas._firstRingID)];
+
         // 🔹 2. Перенос прокачки бонусов и deployables
         bonusLevels = GameManager.ArtefactsData.boostsLevels;
         deployableLevels = GameManager.ArtefactsData.deployablesLevels;
