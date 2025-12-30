@@ -289,10 +289,9 @@ public class ItemInfo
     }
     public int LevelUpLoad(Image image)
     {
-        if (GameManager.playerLevel == requiredLevel)
+        if (GameManager.playerLevel == GameManager.InventoryData.levels[id])
         {
             image.sprite = itemSprite;
-            image.rectTransform.sizeDelta = this.spriteSize;
             return 1;
         }
         return 0; 

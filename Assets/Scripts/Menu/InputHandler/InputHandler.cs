@@ -16,7 +16,7 @@ public class InputHandler : MonoBehaviour
     public Info info;
 
 
-    /*public void OnClick(InputAction.CallbackContext context)
+    public void OnClick(InputAction.CallbackContext context)
     {
         if (!context.started) return;
 
@@ -41,9 +41,9 @@ public class InputHandler : MonoBehaviour
         {
             OpenArtifacts();
         }
-    }*/
+    }
     
-    public void _OpenShop()
+    private void OpenShop()
     {
         shop.gameObject.SetActive(true);
         blackScreen.gameObject.SetActive(true);
@@ -51,7 +51,7 @@ public class InputHandler : MonoBehaviour
         //EventManagerOld.SendShopOpened();
         EventManager.Trigger(GameEvents.ShopOpened);
     }
-    public void _OpenInventory()
+    private void OpenInventory()
     {
         inventory.gameObject.SetActive(true);
         blackScreen.gameObject.SetActive(true);
@@ -59,7 +59,7 @@ public class InputHandler : MonoBehaviour
         //EventManagerOld.SendInventoryOpened();
         EventManager.Trigger(GameEvents.InventoryOpened);
     }
-    public void _LoadGame()
+    private void LoadGame()
     {
         //EventManagerOld.SendGamePrepereToBeStarted();
             
@@ -75,7 +75,7 @@ public class InputHandler : MonoBehaviour
             SceneManager.LoadScene("GameScene");
         }
     }
-    public void _OpenArtefacts()
+    private void OpenArtifacts()
     {
         artifacts.gameObject.SetActive(true);
         blackScreen.gameObject.SetActive(true);

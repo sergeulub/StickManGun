@@ -217,8 +217,6 @@ public class Inventory : MonoBehaviour
         {
             playerVisual.UpdateWeapon(StaticDatas._emptyID); // -1: ����� ����
         }
-
-        playerVisual.UpdateVisual();
     }
     private void LoadItemInfo(ItemInfo item)
     {
